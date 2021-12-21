@@ -28,7 +28,7 @@ line_bot_api.push_message('Ufa79e88066b7a65bae8d131a1f1f9a0c', TextSendMessage(t
  # 基本上程式編輯都在這個function
  @handler.add(MessageEvent, message=TextMessage)
  def handle_message(event):
-     message = text=event.message.text
+     message = TextSendMessage(text=event.message.text)
      if re.match('告訴我秘密',message):
          confirm_template_message = TemplateSendMessage(
              alt_text='問問題',
