@@ -1,14 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Jun  2 21:16:35 2021
-
-@author: Ivan
-版權屬於「行銷搬進大程式」所有，若有疑問，可聯絡ivanyang0606@gmail.com
-
-Line Bot聊天機器人
-第三章 互動回傳功能
-推播push_message與回覆reply_message
-"""
 #載入LineBot所需要的套件
 from flask import Flask, request, abort
 
@@ -19,7 +8,9 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import *
+
 import re
+
 app = Flask(__name__)
 
 # 必須放上自己的Channel Access Token
@@ -27,7 +18,8 @@ line_bot_api = LineBotApi('2bA2+2BpXpPhMxU5Mn6MJNanrwhM75WyW/bFDHUjbYIrdB8cufjwH
 # 必須放上自己的Channel Secret
 handler = WebhookHandler('7ab781240bed864ae1ae0e554acf3475')
 
- line_bot_api.push_message('Ufa79e88066b7a65bae8d131a1f1f9a0c', TextSendMessage(text='你可以開始了'))
+line_bot_api.push_message('Ufa79e88066b7a65bae8d131a1f1f9a0c', TextSendMessage(text='你可以開始了'))
+
 #  監聽所有來自 /callback 的 Post Request
  @app.route("/callback", methods=['POST'])
  def callback():
