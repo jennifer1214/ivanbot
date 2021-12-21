@@ -28,7 +28,7 @@ line_bot_api = LineBotApi('2bA2+2BpXpPhMxU5Mn6MJNanrwhM75WyW/bFDHUjbYIrdB8cufjwH
 handler = WebhookHandler('7ab781240bed864ae1ae0e554acf3475')
 
 #line_bot_api.push_message('Ufa79e88066b7a65bae8d131a1f1f9a0c', TextSendMessage(text='你可以開始了'))
-line_bot_api.push_message(yourID, 
+line_bot_api.push_message('Ufa79e88066b7a65bae8d131a1f1f9a0c',
                           TextSendMessage(text='安安您好！早餐吃了嗎？'))
 # 用迴圈推播訊息
 for i in [1,2,3,4,5]:
