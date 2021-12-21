@@ -29,7 +29,6 @@ handler = WebhookHandler('7ab781240bed864ae1ae0e554acf3475')
 
 line_bot_api.push_message('Ufa79e88066b7a65bae8d131a1f1f9a0c', TextSendMessage(text='你可以開始了'))
 
-
 #  監聽所有來自 /callback 的 Post Request
  @app.route("/callback", methods=['POST'])
  def callback():
