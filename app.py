@@ -49,7 +49,7 @@ line_bot_api.push_message('Ufa79e88066b7a65bae8d131a1f1f9a0c', TextSendMessage(t
          )
          line_bot_api.reply_message(event.reply_token, confirm_template_message)
      else:
-         line_bot_api.reply_message(event.reply_token, message)
+         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
  # 主程式
  import os
  if __name__ == "__main__":
