@@ -27,43 +27,42 @@ line_bot_api = LineBotApi('2bA2+2BpXpPhMxU5Mn6MJNanrwhM75WyW/bFDHUjbYIrdB8cufjwH
 # 必須放上自己的Channel Secret
 handler = WebhookHandler('7ab781240bed864ae1ae0e554acf3475')
 
-#line_bot_api.push_message('Ufa79e88066b7a65bae8d131a1f1f9a0c', TextSendMessage(text='你可以開始了'))
-line_bot_api.push_message('Ufa79e88066b7a65bae8d131a1f1f9a0c',
-                          TextSendMessage(text='安安您好！早餐吃了嗎？'))
-# 用迴圈推播訊息
-for i in [1,2,3,4,5]:
-    line_bot_api.push_message(yourID, 
-                              TextSendMessage(text='我們來倒數：'+str(i)))
-    time.sleep(1)
+line_bot_api.push_message('Ufa79e88066b7a65bae8d131a1f1f9a0c', TextSendMessage(text='你可以開始了'))
 
 
-# 監聽所有來自 /callback 的 Post Request
-@app.route("/callback", methods=['POST'])
-def callback():
-    # get X-Line-Signature header value
-    signature = request.headers['X-Line-Signature']
-
-    # get request body as text
-    body = request.get_data(as_text=True)
-    app.logger.info("Request body: " + body)
-
-    # handle webhook body
-    try:
-        handler.handle(body, signature)
-    except InvalidSignatureError:
-        abort(400)
-
-    return 'OK'
-
-#訊息傳遞區塊
-##### 基本上程式編輯都在這個function #####
-@handler.add(MessageEvent, message=TextMessage)
-def handle_message(event):
-    message = text=event.message.text
-    if re.match('告訴我秘密',message):
-        line_bot_api.reply_message(event.reply_token,TextSendMessage('才不告訴你哩！'))
-    else:
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
+#  監聽所有來自 /callback 的 Post Request
+ @app.route("/callback", methods=['POST'])
+ def callback():
+     # get X-Line-Signature header value
+     signature = request.headers['X-Line-Signature']
+ # get request body as text body = request.get_data(as_text=True) app.logger.info("Request body: " + body) # handle webhook body try:     handler.handle(body, signature) except InvalidSignatureError:     abort(400) return 'OK'
+ # 訊息傳遞區塊
+ # 基本上程式編輯都在這個function
+ @handler.add(MessageEvent, message=TextMessage)
+ def handle_message(event):
+     message = text=event.message.text
+     if re.match('告訴我秘密',message):
+         confirm_template_message = TemplateSendMessage(
+             alt_text='問問題',
+             template=ConfirmTemplate(
+                 text='你喜這堂課嗎？',
+                 actions=[
+                     PostbackAction(
+                         label='喜歡',
+                         display_text='超喜歡',
+                         data='action=其實不喜歡'
+                     ),
+                     MessageAction(
+                         label='愛',
+                         text='愛愛'
+                     )
+                 ]
+             )
+         )
+         line_bot_api.reply_message(event.reply_token, confirm_template_message)
+     else:
+         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
+            
 #主程式
 import os
 if __name__ == "__main__":
