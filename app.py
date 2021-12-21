@@ -52,6 +52,6 @@ line_bot_api.push_message('Ufa79e88066b7a65bae8d131a1f1f9a0c', TextSendMessage(t
          line_bot_api.reply_message(event.reply_token, message)
  # 主程式
  import os
- if name == "main":
-     port = int(os.environ.get('PORT', 5000))
-     app.run(host='0.0.0.0', port=port)
+ if __name__ == "__main__":
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
