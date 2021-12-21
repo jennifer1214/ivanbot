@@ -27,7 +27,7 @@ line_bot_api = LineBotApi('2bA2+2BpXpPhMxU5Mn6MJNanrwhM75WyW/bFDHUjbYIrdB8cufjwH
 # 必須放上自己的Channel Secret
 handler = WebhookHandler('7ab781240bed864ae1ae0e554acf3475')
 
-line_bot_api.push_message('Ufa79e88066b7a65bae8d131a1f1f9a0c', TextSendMessage(text='你可以開始了'))
+line_bot_api.push_message('Ufa79e88066b7a65bae8d131a1f1f9a0c', TextSendMessage(text='開始你的表演，請輸入:action'))
 
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
@@ -52,20 +52,19 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     message = text=event.message.text
-    if re.match('告訴我秘密',message):
+    if re.match('action',message):
         confirm_template_message = TemplateSendMessage(
             alt_text='問問題',
             template=ConfirmTemplate(
-                text='你喜這堂課嗎？',
+                text='你喜歡的是？',
                 actions=[
                     PostbackAction(
-                        label='喜歡',
-                        display_text='超喜歡',
-                        data='action=其實不喜歡'
+                        label='男生',
+                        display_text='你選擇的是:男生'
                     ),
                     MessageAction(
-                        label='愛',
-                        text='愛愛❤'
+                        label='女生',
+                        text='你選擇的是:女生'
                     )
                 ]
             )
