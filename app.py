@@ -52,7 +52,9 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     message = text=event.message.text
-    if re.match('開始',message):
+    if re.match(!='開始',message):
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
+    else:
         confirm_template_message = TemplateSendMessage(
             alt_text='問問題',
             template=ConfirmTemplate(
@@ -60,12 +62,12 @@ def handle_message(event):
                 actions=[
                     PostbackAction(
                         label='男生',
-                        display_text='你選擇的是男生',
+                        display_text='我選擇男生',
                         data='action=男生'
                     ),
                     PostbackAction(
                         label='女生',
-                        display_text='你選擇的是女生',
+                        display_text='我選擇女生',
                         data='action=女生'
                     )
                 ]
@@ -73,27 +75,7 @@ def handle_message(event):
         )
         
         line_bot_api.reply_message(event.reply_token, confirm_template_message)
-        if re.match('你選擇的是男生',message):
-            confirm_template_message = TemplateSendMessage(
-                alt_text='問問題',
-                template=ConfirmTemplate(
-                    text='你喜歡的是？',
-                    actions=[
-                        PostbackAction(
-                            label='男生',
-                            display_text='你選擇的是男生',
-                            data='action=男生'
-                        ),
-                        PostbackAction(
-                            label='女生',
-                            display_text='你選擇的是女生',
-                            data='action=女生'
-                        )
-                    ]
-                )
-            )
-    else:
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
+        
 #主程式
 import os
 if __name__ == "__main__":
