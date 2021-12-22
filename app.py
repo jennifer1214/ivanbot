@@ -65,17 +65,16 @@ def handle_message(event):
                     PostbackAction(
                         label='A',
                         display_text='A',
-                        data='1'
+                        data='action=1'
                     ),
                     PostbackAction(
                         label='B',
                         display_text='B',
-                        data='2'
+                        data='action=2'
                     )
                 ]
             )
         )
-        print(data)
         line_bot_api.reply_message(event.reply_token, buttons_template_message)
         
 #主程式
