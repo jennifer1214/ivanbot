@@ -10,13 +10,21 @@ Line Bot聊天機器人
 選擇按鈕ConfirmTemplate
 """
 #載入LineBot所需要的套件
-from flask import Flask, request, abort
+from django.shortcuts import render
+from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseForbidden
+from django.views.decorators.csrf import csrf_exempt
+from django.conf import settings
+ 
 
+from linebot.exceptions import InvalidSignatureError, LineBotApiError
+ 
+from .scraper import IFoodie
+
+
+
+from flask import Flask, request, abort
 from linebot import (
     LineBotApi, WebhookHandler
-)
-from linebot.exceptions import (
-    InvalidSignatureError
 )
 from linebot.models import *
 import re
@@ -147,7 +155,7 @@ def callback(request):
         return HttpResponse()
     else:
         return HttpResponseBadRequest()
-        
+
 #主程式
 import os
 if __name__ == "__main__":
