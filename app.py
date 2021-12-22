@@ -55,48 +55,30 @@ def handle_message(event):
     if re.match('[^開始]',message):
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
     else:
-        confirm_template_message = TemplateSendMessage(
+        buttons_template_message = TemplateSendMessage(
             alt_text='問問題',
-            template=ConfirmTemplate(
-                text='你喜歡的是？',
+            template=ButtonsTemplate(
+                title='敘述內容',
+                text='選擇的是?',
                 actions=[
                     PostbackAction(
-                        label='男生',
-                        display_text='我選擇男生',
-                        data='action=男生'
+                        label='A',
+                        display_text='A',
+                        data='action=檯面下'
                     ),
                     PostbackAction(
-                        label='女生',
-                        display_text='我選擇女生',
-                        data='action=女生'
-                    )
-                ]
-            )
-        )
-        line_bot_api.reply_message(event.reply_token, confirm_template_message)
-def handle_message(event):
-    message = text=event.message.text
-    if re.match('我選擇男生',message):
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
-    else:
-        confirm_template_message = TemplateSendMessage(
-            alt_text='問問題',
-            template=ConfirmTemplate(
-                text='你喜歡的是？',
-                actions=[
-                    PostbackAction(
-                        label='男生',
-                        display_text='我選擇男生',
-                        data='action=男生'
+                        label='B',
+                        display_text='B',
+                        data='action=檯面下'
                     ),
                     PostbackAction(
-                        label='女生',
-                        display_text='我選擇女生',
-                        data='action=女生'
+                        label='C',
+                        display_text='C',
+                        data='action=檯面下'
                     )
-                ]
-            )
-        )
+             ]
+         )
+     )
         line_bot_api.reply_message(event.reply_token, confirm_template_message)
 
 
