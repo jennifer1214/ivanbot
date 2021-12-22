@@ -55,6 +55,7 @@ def handle_message(event):
     if message=='開始': #re.match('[^開始]',message):
         line_bot_api.reply_message(event.reply_token, TextSendMessage("start"))
     elif message=='a' or message=='b' or message=='c' or message=='d' :
+        print(message)
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(123))
