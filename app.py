@@ -52,34 +52,31 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     message = text=event.message.text
-    if message=='開始': #re.match('[^開始]',message):
-        line_bot_api.reply_message(event.reply_token, TextSendMessage("start"))
-    elif message=='a' or message=='b' or message=='c' or message=='d' :
-        print(message)
+    if re.match('[^開始]',message):
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
     else:
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(123))
-    #     buttons_template_message = TemplateSendMessage(
-    #     alt_text='問問題',
-    #     template=ButtonsTemplate(
-    #         #thumbnail_image_url='https://i.imgur.com/wpM584d.jpg',
-    #         title='行銷搬進大程式',
-    #         text='選單功能－TemplateSendMessage',
-    #         actions=[
-    #             PostbackAction(
-    #                 label='A',
-    #                 display_text='A',
-    #                 data='action=1'
-    #             ),
-    #             PostbackAction(
-    #                 label='B',
-    #                 display_text='B',
-    #                 data='action=2'
-    #             )
-    #         ]
-    #     )
-    # )
-    #    line_bot_api.reply_message(event.reply_token, buttons_template_message)
+        buttons_template_message = TemplateSendMessage(
+            alt_text='問問題',
+            template=ButtonsTemplate(
+                #thumbnail_image_url='https://i.imgur.com/wpM584d.jpg',
+                title='行銷搬進大程式',
+                text='選單功能－TemplateSendMessage',
+                actions=[
+                    PostbackAction(
+                        label='A',
+                        display_text='A',
+                        data='1'
+                    ),
+                    PostbackAction(
+                        label='B',
+                        display_text='B',
+                        data='2'
+                    )
+                ]
+            )
+        )
+        print(data)
+        line_bot_api.reply_message(event.reply_token, buttons_template_message)
         
 #主程式
 import os
