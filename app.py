@@ -56,31 +56,24 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
     else:
         buttons_template_message = TemplateSendMessage(
-        alt_text='問問題',
+        alt_text='這個看不到',
         template=ButtonsTemplate(
-            #thumbnail_image_url='https://i.imgur.com/wpM584d.jpg',
-            title='敘述',
-            text='請選擇',
+            thumbnail_image_url='https://i.imgur.com/wpM584d.jpg',
+            title='行銷搬進大程式',
+            text='選單功能－TemplateSendMessage',
             actions=[
                 PostbackAction(
-                    label='A',
-                    display_text='A',
-                    data='action=1'
+                    label='偷偷傳資料',
+                    display_text='檯面上',
+                    data='action=檯面下'
                 ),
-                PostbackAction(
-                    label='B',
-                    display_text='B',
-                    data='action=2'
+                MessageAction(
+                    label='光明正大傳資料',
+                    text='我就是資料'
                 ),
-                PostbackAction(
-                    label='C',
-                    display_text='C',
-                    data='action=3'
-                ),
-                PostbackAction(
-                    label='D',
-                    display_text='D',
-                    data='action=4'
+                URIAction(
+                    label='行銷搬進大程式',
+                    uri='https://marketingliveincode.com/'
                 )
             ]
         )
