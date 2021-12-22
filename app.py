@@ -65,23 +65,8 @@ def handle_message(event):
                     ),
                     MessageAction(
                         label='女生',
-                        #display_text='你選擇的是女生',
-                        #data='action=女生',
-                        template=ConfirmTemplate(
-                            text='你選擇的是女生，那喜歡的是？',
-                            actions=[
-                                PostbackAction(
-                                    label='男生',
-                                    display_text='你選擇的是男生',
-                                    data='action=男生'
-                                    ),
-                                MessageAction(
-                                    label='女生',
-                                    display_text='你選擇的是女生',
-                                    data='action=女生'
-                                    )
-                            ]
-                        )
+                        display_text='你選擇的是女生',
+                        data='action=女生'
                     )
                 ]
             )
@@ -89,6 +74,33 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, confirm_template_message)
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
+def handle_message(event):
+    message = text=event.message.text
+    if re.match('你選擇的是女生',message):
+        confirm_template_message = TemplateSendMessage(
+            alt_text='問問題',
+            template=ConfirmTemplate(
+                text='你喜歡的是？',
+                actions=[
+                    PostbackAction(
+                        label='男生',
+                        display_text='你選擇的是男生',
+                        data='action=男生'
+                    ),
+                    MessageAction(
+                        label='女生',
+                        display_text='你選擇的是女生',
+                        data='action=女生'
+                    )
+                ]
+            )
+        )
+        line_bot_api.reply_message(event.reply_token, confirm_template_message)
+    else:
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
+
+
+
 #主程式
 import os
 if __name__ == "__main__":
