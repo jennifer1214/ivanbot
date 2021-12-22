@@ -61,11 +61,11 @@ def handle_message(event):
                     PostbackAction(
                         label='男生',
                         display_text='你選擇的是男生',
-                        data='action=男生'
+                        data='action=不知道要說啥'
                     ),
                     MessageAction(
                         label='女生',
-                        display_text='你選擇的是女生'
+                        text='你選擇的是女生'
                     )
                 ]
             )
