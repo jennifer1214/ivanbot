@@ -65,8 +65,7 @@ def handle_message(event):
                     ),
                     MessageAction(
                         label='女生',
-                        display_text='你選擇的是女生',
-                        data='action=女生'
+                        display_text='你選擇的是女生'
                     )
                 ]
             )
