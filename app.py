@@ -14,17 +14,18 @@ from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseForbidden
 from django.views.decorators.csrf import csrf_exempt
 from django.conf import settings
- 
-
 from linebot.exceptions import InvalidSignatureError, LineBotApiError
- 
 from .scraper import IFoodie
 
 
 
 from flask import Flask, request, abort
+
 from linebot import (
     LineBotApi, WebhookHandler
+)
+from linebot.exceptions import (
+    InvalidSignatureError
 )
 from linebot.models import *
 import re
@@ -72,32 +73,28 @@ def callback(request):
             return HttpResponseBadRequest()
  
         for event in events:
-            if isinstance(event, MessageEvent):  # 如果有訊息事件
- 
-                if event.message.text == "哈囉":
- 
+            if isinstance(event, MessageEvent):
+                if re.match('開始',message):
                     line_bot_api.reply_message(  # 回復傳入的訊息文字
                         event.reply_token,
                         TemplateSendMessage(
-                            alt_text='Buttons template',
+                            #thumbnail_image_url='https://i.imgur.com/wpM584d.jpg',
+                            alt_text='問問題',
                             template=ButtonsTemplate(
                                 title='Menu',
                                 text='請選擇地區',
                                 actions=[
-                                    PostbackTemplateAction(
+                                    MessageTemplateAction(
                                         label='台北市',
-                                        text='台北市',
-                                        data='A&台北市'
+                                        text='台北市'
                                     ),
-                                    PostbackTemplateAction(
+                                    MessageTemplateAction(
                                         label='台中市',
-                                        text='台中市',
-                                        data='A&台中市'
+                                        text='台中市'
                                     ),
-                                    PostbackTemplateAction(
+                                    MessageTemplateAction(
                                         label='高雄市',
-                                        text='高雄市',
-                                        data='A&高雄市'
+                                        text='高雄市'
                                     )
                                 ]
                             )
@@ -136,7 +133,7 @@ def callback(request):
                             )
                         )
                     )
- 
+
                 elif event.postback.data[0:1] == "B":  # 如果回傳值為「選擇美食類別」
  
                     result = event.postback.data[2:].split('&')  # 回傳值的字串切割
@@ -154,7 +151,7 @@ def callback(request):
  
         return HttpResponse()
     else:
-        return HttpResponseBadRequest()
+        return HttpResponseBadRequest()    
 
 #主程式
 import os
