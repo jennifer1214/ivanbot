@@ -52,9 +52,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     message = text=event.message.text
-    if re.match('[^開始]',message):
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
-    else:
+    if re.match('告訴我秘密',message):
         buttons_template_message = TemplateSendMessage(
         alt_text='這個看不到',
         template=ButtonsTemplate(
@@ -78,7 +76,9 @@ def handle_message(event):
             ]
         )
     )
-        line_bot_api.reply_message(event.reply_token, confirm_template_message)
+        line_bot_api.reply_message(event.reply_token, buttons_template_message)
+    else:
+        line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
 
 #主程式
 import os
