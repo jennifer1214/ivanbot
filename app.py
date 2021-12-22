@@ -74,7 +74,7 @@ def handle_message(event):
             )
         )
         line_bot_api.reply_message(event.reply_token, confirm_template_message)
-        message = text=event.message.text
+        message = text=confirm_template_message.text
         if re.match('[我選擇男生]',message):
             line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
         else:
