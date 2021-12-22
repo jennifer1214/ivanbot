@@ -73,7 +73,46 @@ def handle_message(event):
                 ]
             )
         )
-        
+        line_bot_api.reply_message(event.reply_token, confirm_template_message)
+        if re.match('我選擇男生',message):
+            confirm_template_message = TemplateSendMessage(
+            alt_text='問問題',
+            template=ConfirmTemplate(
+                text='你選擇男生，那喜歡的是？',
+                actions=[
+                    PostbackAction(
+                        label='男生',
+                        display_text='我選擇男生',
+                        data='action=男生'
+                    ),
+                    PostbackAction(
+                        label='女生',
+                        display_text='我選擇女生',
+                        data='action=女生'
+                    )
+                ]
+            )
+        )
+        line_bot_api.reply_message(event.reply_token, confirm_template_message)
+        else:
+            confirm_template_message = TemplateSendMessage(
+            alt_text='問問題',
+            template=ConfirmTemplate(
+                text='你選擇女生，那喜歡的是？',
+                actions=[
+                    PostbackAction(
+                        label='男生',
+                        display_text='我選擇男生',
+                        data='action=男生'
+                    ),
+                    PostbackAction(
+                        label='女生',
+                        display_text='我選擇女生',
+                        data='action=女生'
+                    )
+                ]
+            )
+        )
         line_bot_api.reply_message(event.reply_token, confirm_template_message)
 
 #主程式
