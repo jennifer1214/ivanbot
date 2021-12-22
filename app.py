@@ -1,94 +1,50 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Jun  2 21:16:35 2021
 
-@author: Ivan
-版權屬於「行銷搬進大程式」所有，若有疑問，可聯絡ivanyang0606@gmail.com
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+]
 
-Line Bot聊天機器人
-第四章 選單功能
-選擇按鈕ConfirmTemplate
-"""
-#載入LineBot所需要的套件
-from flask import Flask, request, abort
 
-from linebot import (
-    LineBotApi, WebhookHandler
-)
-from linebot.exceptions import (
-    InvalidSignatureError
-)
-from linebot.models import *
-import re
-app = Flask(__name__)
+from django.shortcuts import render
+from django.http import HttpResponse, HttpResponseBadRequest, HttpResponseForbidden
+from django.views.decorators.csrf import csrf_exempt
+from django.conf import settings
+ 
+from linebot import LineBotApi, WebhookParser
+from linebot.exceptions import InvalidSignatureError, LineBotApiError
+from linebot.models import MessageEvent, TextSendMessage
+
 
 # 必須放上自己的Channel Access Token
 line_bot_api = LineBotApi('2bA2+2BpXpPhMxU5Mn6MJNanrwhM75WyW/bFDHUjbYIrdB8cufjwH2MocJllX7W/0wnv55EIZtJUVCn5M2/kG8N4tqPx2coDmGFfFdBZPJp64AfGRrkFpn3T5Bs9C06KlgwPTZrRFHAzdG3Xz90ReQdB04t89/1O/w1cDnyilFU=')
 # 必須放上自己的Channel Secret
-handler = WebhookHandler('7ab781240bed864ae1ae0e554acf3475')
+parser = WebhookParser('7ab781240bed864ae1ae0e554acf3475')
 
-line_bot_api.push_message('Ufa79e88066b7a65bae8d131a1f1f9a0c', TextSendMessage(text='開始你的表演，請輸入：開始'))
-
-# 監聽所有來自 /callback 的 Post Request
-@app.route("/callback", methods=['POST'])
-def callback():
-    # get X-Line-Signature header value
-    signature = request.headers['X-Line-Signature']
-
-    # get request body as text
-    body = request.get_data(as_text=True)
-    app.logger.info("Request body: " + body)
-
-    # handle webhook body
-    try:
-        handler.handle(body, signature)
-    except InvalidSignatureError:
-        abort(400)
-
-    return 'OK'
-
-#訊息傳遞區塊
-##### 基本上程式編輯都在這個function #####
-@handler.add(MessageEvent, message=TextMessage)
-def handle_message(event):
-    message = text=event.message.text
-    if re.match('[^開始]',message):
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
+ 
+@csrf_exempt
+def callback(request):
+ 
+    if request.method == 'POST':
+        signature = request.META['HTTP_X_LINE_SIGNATURE']
+        body = request.body.decode('utf-8')
+ 
+        try:
+            events = parser.parse(body, signature)  # 傳入的事件
+        except InvalidSignatureError:
+            return HttpResponseForbidden()
+        except LineBotApiError:
+            return HttpResponseBadRequest()
+ 
+        for event in events:
+            if isinstance(event, MessageEvent):  # 如果有訊息事件
+                line_bot_api.reply_message(  # 回復傳入的訊息文字
+                    event.reply_token,
+                    TextSendMessage(text=event.message.text)
+                )
+        return HttpResponse()
     else:
-        buttons_template_message = TemplateSendMessage(
-        alt_text='問問題',
-        template=ButtonsTemplate(
-            #thumbnail_image_url='https://i.imgur.com/wpM584d.jpg',
-            title='行銷搬進大程式',
-            text='選單功能－TemplateSendMessage',
-            actions=[
-                PostbackAction(
-                    label='A',
-                    display_text='A',
-                    data='action=1'
-                ),
-                PostbackAction(
-                    label='B',
-                    display_text='B',
-                    data='action=2'
-                ),
-                PostbackAction(
-                    label='C',
-                    display_text='C',
-                    data='action=3'
-                )
-                ,PostbackAction(
-                    label='D',
-                    display_text='D',
-                    data='action=4'
-                )
-            ]
-        )
-    )
-        line_bot_api.reply_message(event.reply_token, buttons_template_message)
-        
-#主程式
-import os
-if __name__ == "__main__":
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
+        return HttpResponseBadRequest()
