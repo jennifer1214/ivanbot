@@ -29,7 +29,7 @@ line_bot_api = LineBotApi('2bA2+2BpXpPhMxU5Mn6MJNanrwhM75WyW/bFDHUjbYIrdB8cufjwH
 # 必須放上自己的Channel Secret
 handler = WebhookHandler('7ab781240bed864ae1ae0e554acf3475')
 
-line_bot_api.push_message('Ufa79e88066b7a65bae8d131a1f1f9a0c', TextSendMessage(text='歡迎光臨'))
+line_bot_api.push_message('Ufa79e88066b7a65bae8d131a1f1f9a0c', TextSendMessage(text='歡迎光臨，請輸入：開始'))
 
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
@@ -57,8 +57,15 @@ def handle_message(event):
     profile = line_bot_api.get_profile(event.source.user_id)
     uid = profile.user_id # 發訊者ID
 
-    if re.match("時間", msg):
+    if re.match("開始", msg):
         message = week_menu()
+        line_bot_api.push_message(uid, message)
+    elif re.match(r'A|B', msg):
+        ani_data = Ani_info.get_category_data(msg[:2])
+        inDB = []
+        for i in range(len(ani_data[0])):
+            inDB.append(Mongodb.find_ani(uid, ani_data[0][i]))
+        message = Msg_Ani.ani_category(msg[:2], ani_data, inDB)
         line_bot_api.push_message(uid, message)
     else:
         line_bot_api.push_message(uid, TextSendMessage('bye'))
@@ -99,8 +106,8 @@ def week_menu():
                             "type": "button",
                             "action": {
                             "type": "message",
-                            "label": "週一",
-                            "text": "星期一番劇查詢"
+                            "label": "A",
+                            "text": "AA"
                             },
                             "height": "sm",
                             "style": "link"
@@ -109,65 +116,8 @@ def week_menu():
                             "type": "button",
                             "action": {
                             "type": "message",
-                            "label": "週二",
-                            "text": "星期二番劇查詢"
-                            },
-                            "height": "sm",
-                            "style": "link"
-                        },
-                        {
-                            "type": "button",
-                            "action": {
-                            "type": "message",
-                            "label": "週三",
-                            "text": "星期三番劇查詢"
-                            },
-                            "height": "sm",
-                            "style": "link"
-                        }
-                        ],
-                        "paddingAll": "none"
-                    },
-                    {
-                        "type": "box",
-                        "layout": "horizontal",
-                        "contents": [
-                        {
-                            "type": "button",
-                            "action": {
-                            "type": "message",
-                            "label": "週四",
-                            "text": "星期四番劇查詢"
-                            },
-                            "height": "sm",
-                            "style": "link"
-                        },
-                        {
-                            "type": "button",
-                            "action": {
-                            "type": "message",
-                            "label": "週五",
-                            "text": "星期五番劇查詢"
-                            },
-                            "height": "sm",
-                            "style": "link"
-                        },
-                        {
-                            "type": "button",
-                            "action": {
-                            "type": "message",
-                            "label": "週六",
-                            "text": "星期六番劇查詢"
-                            },
-                            "height": "sm",
-                            "style": "link"
-                        },
-                        {
-                            "type": "button",
-                            "action": {
-                            "type": "message",
-                            "label": "週日",
-                            "text": "星期日番劇查詢"
+                            "label": "B",
+                            "text": "BB"
                             },
                             "height": "sm",
                             "style": "link"
