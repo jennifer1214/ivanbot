@@ -11,7 +11,7 @@ Line Bot聊天機器人
 """
 #載入LineBot所需要的套件
 import os
-import pandas as pd
+
 from flask import Flask, request, abort
 
 from linebot import (
@@ -24,7 +24,6 @@ from linebot.models import *
 import re
 app = Flask(__name__)
 
-df = pd.read_csv('Q_and_A.csv') 
 
 # def get_tag_color(tag):
 #     if tag == "減分":
