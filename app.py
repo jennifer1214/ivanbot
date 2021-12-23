@@ -60,8 +60,8 @@ def handle_message(event):
     if msg!='開始': #re.match('[^開始]',message):
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
     else:
-        message = person_menu()
-        line_bot_api.push_message(uid, TextSendMessage(message))
+        message = def person_menu()
+        line_bot_api.push_message(uid, message)
 
         
 def person_menu():
