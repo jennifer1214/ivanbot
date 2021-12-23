@@ -1,3 +1,5 @@
+import os
+import pandas as pd
 from flask import Flask, request, abort
 
 from linebot import (
@@ -54,5 +56,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token,AudioSendMessage(original_content_url='音訊網址', duration=100000))
     return 'OK2'
 
+
 if __name__ == "__main__":
-    app.run(debug=True,port=80)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', port=port)
