@@ -11,7 +11,8 @@ Line Bot聊天機器人
 """
 #載入LineBot所需要的套件
 import os
-import pandas as pd
+import psycopg2
+
 from flask import Flask, request, abort
 
 from linebot import (
@@ -24,23 +25,12 @@ from linebot.models import *
 import re
 app = Flask(__name__)
 
-df = pd.read_csv('Q_and_A.csv') 
-
-# def get_tag_color(tag):
-#     if tag == "減分":
-#         tag_color = "#ED784A"
-#     elif tag == "加分":
-#         tag_color = "#FF334B"
-
-#     return tag_color
-
 # 必須放上自己的Channel Access Token
 line_bot_api = LineBotApi('2bA2+2BpXpPhMxU5Mn6MJNanrwhM75WyW/bFDHUjbYIrdB8cufjwH2MocJllX7W/0wnv55EIZtJUVCn5M2/kG8N4tqPx2coDmGFfFdBZPJp64AfGRrkFpn3T5Bs9C06KlgwPTZrRFHAzdG3Xz90ReQdB04t89/1O/w1cDnyilFU=')
 # 必須放上自己的Channel Secret
 handler = WebhookHandler('7ab781240bed864ae1ae0e554acf3475')
 
-line_bot_api.push_message('Ufa79e88066b7a65bae8d131a1f1f9a0c', TextSendMessage(text='歡迎光臨，請輸入：開始'))
-
+line_bot_api.push_message('Ufa79e88066b7a65bae8d131a1f1f9a0c', TextSendMessage(text='開始你的表演，請輸入：開始'))
 
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
@@ -60,6 +50,8 @@ def callback():
 
     return 'OK'
 
+#訊息傳遞區塊
+##### 基本上程式編輯都在這個function #####
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     msg = event.message.text
@@ -81,3 +73,4 @@ def handle_message(event):
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
+
