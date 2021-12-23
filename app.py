@@ -29,7 +29,7 @@ line_bot_api = LineBotApi('2bA2+2BpXpPhMxU5Mn6MJNanrwhM75WyW/bFDHUjbYIrdB8cufjwH
 # 必須放上自己的Channel Secret
 handler = WebhookHandler('7ab781240bed864ae1ae0e554acf3475')
 
-line_bot_api.push_message('Ufa79e88066b7a65bae8d131a1f1f9a0c', TextSendMessage(text='開始你的表演，請輸入：開始'))
+line_bot_api.push_message('Ufa79e88066b7a65bae8d131a1f1f9a0c', TextSendMessage(text='歡迎光臨'))
 
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
@@ -57,108 +57,11 @@ def handle_message(event):
     profile = line_bot_api.get_profile(event.source.user_id)
     uid = profile.user_id # 發訊者ID
 
-    if msg!='開始': #re.match('[^開始]',message):
-        line_bot_api.push_message(uid, TextSendMessage('アニ君無法回應該訊息QwQ \n\n輸入《時間》找尋每日番劇！ \n輸入《今日》探索今日番劇！ \n輸入《類別》查找各類番劇！ \n輸入《#動畫名》查詢動畫資訊！ \n輸入《我的追番》查看收藏番劇！'))
-    else:
-        message = person_menu()
+    if re.match("時間", msg):
+        message = Msg_Template.week_menu()
         line_bot_api.push_message(uid, message)
-
-        
-def person_menu():
-    flex_message = FlexSendMessage(
-        alt_text = "person menu",
-        contentS = {
-            "type":"bubble",
-            # "hero":{
-            #     "type":"image",
-            #     "url":"",
-            #     "size""size": "full",
-            #     "aspectRatio": "5:2",
-            #     "aspectMode": "cover"
-            # },
-            "body": {
-                "type": "box",
-                "layout": "vertical",
-                "contents": [
-                {
-                    "type": "text",
-                    "text": "人",
-                    "weight": "bold",
-                    "size": "xl",
-                    "align": "center"
-                },
-                {
-                    "type": "box",
-                    "layout": "vertical",
-                    "spacing": "sm",
-                    "contents": [
-                    {
-                        "type": "box",
-                        "layout": "horizontal",
-                        "contents": [
-                        {
-                            "type": "button",
-                            "action": {
-                            "type": "message",
-                            "label": "A",
-                            "text": "AA小朋友"
-                            },
-                            "height": "sm",
-                            "style": "link"
-                        },
-                        {
-                            "type": "button",
-                            "action": {
-                            "type": "message",
-                            "label": "B",
-                            "text": "BB小朋友"
-                            },
-                            "height": "sm",
-                            "style": "link"
-                        },
-                        {
-                            "type": "button",
-                            "action": {
-                            "type": "message",
-                            "label": "C",
-                            "text": "CC小朋友"
-                            },
-                            "height": "sm",
-                            "style": "link"
-                        },
-                        {
-                            "type": "button",
-                            "action": {
-                            "type": "message",
-                            "label": "D",
-                            "text": "DD小朋友"
-                            },
-                            "height": "sm",
-                            "style": "link"
-                        },
-                        {
-                            "type": "button",
-                            "action": {
-                            "type": "message",
-                            "label": "E",
-                            "text": "EE小朋友"
-                            },
-                            "height": "sm",
-                            "style": "link"
-                        }
-                        ],
-                        "paddingAll": "none"
-                    }
-                    ],
-                    "paddingAll": "xs"
-                }
-                ],
-                "paddingAll": "md"
-            }
-        }
-    )
-    return flex_message
-
+    else:
+        line_bot_api.push_message(uid, TextSendMessage('不知道'))
 
 
 #主程式
