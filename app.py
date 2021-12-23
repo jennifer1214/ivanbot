@@ -11,7 +11,6 @@ Line Bot聊天機器人
 """
 #載入LineBot所需要的套件
 import os
-import psycopg2
 
 from flask import Flask, request, abort
 
@@ -54,79 +53,113 @@ def callback():
 ##### 基本上程式編輯都在這個function #####
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    message = text=event.message.text
-    if message!='開始': #re.match('[^開始]',message):
+    msg = str(event.message.text).upper().strip() # 使用者輸入的內容
+    profile = line_bot_api.get_profile(event.source.user_id)
+    uid = profile.user_id # 發訊者ID
+
+    if msg!='開始': #re.match('[^開始]',message):
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
     else:
-        buttons_template_message = TemplateSendMessage(
-            alt_text='問問題',
-            template=ButtonsTemplate(
-                #thumbnail_image_url='https://i.imgur.com/wpM584d.jpg',
-                title='行銷搬進大程式',
-                text='選單功能－TemplateSendMessage',
-                actions=[
-                    PostbackAction(
-                        label='A',
-                        display_text='A',
-                        data='action=1'
-                    ),
-                    PostbackAction(
-                        label='B',
-                        display_text='B',
-                        data='action=2'
-                    )
-                ]
-            )
-        )
-        line_bot_api.reply_message(event.reply_token, buttons_template_message)
-        def handler_postback(event):
-            prof = line_bot_api.get_profile(event.source.user_id)
-            data = event.postback.data
-            print(f"data:{data}")
-            if(data == 'action=1'):
-                buttons_template_message = TemplateSendMessage(
-                    alt_text='問問題',
-                    template=ButtonsTemplate(
-                        #thumbnail_image_url='https://i.imgur.com/wpM584d.jpg',
-                        title='行銷搬進大程式',
-                        text='選單功能－TemplateSendMessage',
-                        actions=[
-                            PostbackAction(
-                                label='A',
-                                display_text='A',
-                                data='action=1'
-                            ),
-                            PostbackAction(
-                                label='B',
-                                display_text='B',
-                                data='action=2'
-                            )
-                        ]
-                    )
-                )
-                line_bot_api.reply_message(event.reply_token, buttons_template_message)
-            else:
-                buttons_template_message = TemplateSendMessage(
-                    alt_text='問問題',
-                    template=ButtonsTemplate(
-                        #thumbnail_image_url='https://i.imgur.com/wpM584d.jpg',
-                        title='行銷搬進大程式',
-                        text='選單功能－TemplateSendMessage',
-                        actions=[
-                            PostbackAction(
-                                label='A',
-                                display_text='A',
-                                data='action=1'
-                            ),
-                            PostbackAction(
-                                label='B',
-                                display_text='B',
-                                data='action=2'
-                            )
-                        ]
-                    )
-                )
-                line_bot_api.reply_message(event.reply_token, buttons_template_message)
+        message = person_menu()
+        line_bot_api.push_message(uid, TextSendMessage(message))
+
+        
+def person_menu():
+    flex_message = FlexSendMassage(
+        alt_text = "person menu",
+        contentS = {
+            "type":"bubble",
+            # "hero":{
+            #     "type":"image",
+            #     "url":"",
+            #     "size""size": "full",
+            #     "aspectRatio": "5:2",
+            #     "aspectMode": "cover"
+            # },
+            "body": {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                {
+                    "type": "text",
+                    "text": "人",
+                    "weight": "bold",
+                    "size": "xl",
+                    "align": "center"
+                },
+                {
+                    "type": "box",
+                    "layout": "vertical",
+                    "spacing": "sm",
+                    "contents": [
+                    {
+                        "type": "box",
+                        "layout": "horizontal",
+                        "contents": [
+                        {
+                            "type": "button",
+                            "action": {
+                            "type": "message",
+                            "label": "A",
+                            "text": "AA小朋友"
+                            },
+                            "height": "sm",
+                            "style": "link"
+                        },
+                        {
+                            "type": "button",
+                            "action": {
+                            "type": "message",
+                            "label": "B",
+                            "text": "BB小朋友"
+                            },
+                            "height": "sm",
+                            "style": "link"
+                        },
+                        {
+                            "type": "button",
+                            "action": {
+                            "type": "message",
+                            "label": "C",
+                            "text": "CC小朋友"
+                            },
+                            "height": "sm",
+                            "style": "link"
+                        },
+                        {
+                            "type": "button",
+                            "action": {
+                            "type": "message",
+                            "label": "D",
+                            "text": "DD小朋友"
+                            },
+                            "height": "sm",
+                            "style": "link"
+                        },
+                        {
+                            "type": "button",
+                            "action": {
+                            "type": "message",
+                            "label": "E",
+                            "text": "EE小朋友"
+                            },
+                            "height": "sm",
+                            "style": "link"
+                        }
+                        ],
+                        "paddingAll": "none"
+                    }
+                    ],
+                    "paddingAll": "xs"
+                }
+                ],
+                "paddingAll": "md"
+            }
+        }
+    )
+    return flex_message
+
+
 
 #主程式
 import os
