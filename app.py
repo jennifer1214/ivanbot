@@ -65,7 +65,7 @@ def handle_message(event):
 
         
 def person_menu():
-    flex_message = FlexSendMassage(
+    flex_message = FlexSendMessage(
         alt_text = "person menu",
         contentS = {
             "type":"bubble",
