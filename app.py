@@ -52,8 +52,6 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     message = text=event.message.text
-    data = event.postback.data
-    print(f"data:{data}")
     if message!='開始': #re.match('[^開始]',message):
         line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
     else:
