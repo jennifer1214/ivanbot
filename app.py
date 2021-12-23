@@ -1,3 +1,15 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Wed Jun  2 21:16:35 2021
+
+@author: Ivan
+版權屬於「行銷搬進大程式」所有，若有疑問，可聯絡ivanyang0606@gmail.com
+
+Line Bot聊天機器人
+第四章 選單功能
+選擇按鈕ConfirmTemplate
+"""
+#載入LineBot所需要的套件
 import os
 import pandas as pd
 from flask import Flask, request, abort
@@ -9,35 +21,44 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import *
-
+import re
 app = Flask(__name__)
 
+df = pd.read_csv('Q_and_A.csv') 
+
+# def get_tag_color(tag):
+#     if tag == "減分":
+#         tag_color = "#ED784A"
+#     elif tag == "加分":
+#         tag_color = "#FF334B"
+
+#     return tag_color
 
 # 必須放上自己的Channel Access Token
 line_bot_api = LineBotApi('2bA2+2BpXpPhMxU5Mn6MJNanrwhM75WyW/bFDHUjbYIrdB8cufjwH2MocJllX7W/0wnv55EIZtJUVCn5M2/kG8N4tqPx2coDmGFfFdBZPJp64AfGRrkFpn3T5Bs9C06KlgwPTZrRFHAzdG3Xz90ReQdB04t89/1O/w1cDnyilFU=')
 # 必須放上自己的Channel Secret
 handler = WebhookHandler('7ab781240bed864ae1ae0e554acf3475')
 
-@app.route("/", methods=['GET'])
-def hello():
-    return "Hello World!"
+line_bot_api.push_message('Ufa79e88066b7a65bae8d131a1f1f9a0c', TextSendMessage(text='歡迎光臨，請輸入：開始'))
 
-@app.route("/", methods=['POST'])
+
+# 監聽所有來自 /callback 的 Post Request
+@app.route("/callback", methods=['POST'])
 def callback():
     # get X-Line-Signature header value
     signature = request.headers['X-Line-Signature']
 
     # get request body as text
     body = request.get_data(as_text=True)
-    print("Request body: " + body, "Signature: " + signature)
+    app.logger.info("Request body: " + body)
+
     # handle webhook body
     try:
         handler.handle(body, signature)
     except InvalidSignatureError:
-       abort(400)
+        abort(400)
 
     return 'OK'
-
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
