@@ -58,7 +58,7 @@ def handle_message(event):
     uid = profile.user_id # 發訊者ID
 
     if msg!='開始': #re.match('[^開始]',message):
-        line_bot_api.reply_message(event.reply_token, TextSendMessage(message))
+        line_bot_api.push_message(uid, TextSendMessage('アニ君無法回應該訊息QwQ \n\n輸入《時間》找尋每日番劇！ \n輸入《今日》探索今日番劇！ \n輸入《類別》查找各類番劇！ \n輸入《#動畫名》查詢動畫資訊！ \n輸入《我的追番》查看收藏番劇！'))
     else:
         message = person_menu()
         line_bot_api.push_message(uid, message)
