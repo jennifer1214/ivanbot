@@ -41,8 +41,6 @@ handler = WebhookHandler('7ab781240bed864ae1ae0e554acf3475')
 
 line_bot_api.push_message('Ufa79e88066b7a65bae8d131a1f1f9a0c', TextSendMessage(text='歡迎光臨，請輸入：開始'))
 
-with open("control.jpg", 'rb') as f:
-    line_bot_api.set_rich_menu_image("Ufa79e88066b7a65bae8d131a1f1f9a0c", "image/jpeg", f)
 
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
@@ -144,19 +142,6 @@ def week_menu():
         }
     )
     return flex_message
-
-
-def get_category_data(ani_cate):
-    data = df[df[ani_cate] == 1]
-    data.reset_index(inplace=True)
-    name = list(data.A1.values)
-    intro = list(data.A1結果.values)
-    # image = list(data.封面.values)
-    # tag = list(data.Tag.values)
-    # tag_color = [get_tag_color(x) for x in tag]
-    return name, intro#, image, tag, tag_color
-    
-
 
 #主程式
 import os
