@@ -79,7 +79,55 @@ def handle_message(event):
             )
         )
         line_bot_api.reply_message(event.reply_token, buttons_template_message)
-        
+        def handler_postback(event):
+            prof = line_bot_api.get_profile(event.source.user_id)
+            data = event.postback.data
+            print(f"data:{data}")
+            if(data == 'action=1'):
+                buttons_template_message = TemplateSendMessage(
+                    alt_text='問問題',
+                    template=ButtonsTemplate(
+                        #thumbnail_image_url='https://i.imgur.com/wpM584d.jpg',
+                        title='行銷搬進大程式',
+                        text='選單功能－TemplateSendMessage',
+                        actions=[
+                            PostbackAction(
+                                label='A',
+                                display_text='A',
+                                data='action=1'
+                            ),
+                            PostbackAction(
+                                label='B',
+                                display_text='B',
+                                data='action=2'
+                            )
+                        ]
+                    )
+                )
+                line_bot_api.reply_message(event.reply_token, buttons_template_message)
+            else:
+                buttons_template_message = TemplateSendMessage(
+                    alt_text='問問題',
+                    template=ButtonsTemplate(
+                        #thumbnail_image_url='https://i.imgur.com/wpM584d.jpg',
+                        title='行銷搬進大程式',
+                        text='選單功能－TemplateSendMessage',
+                        actions=[
+                            PostbackAction(
+                                label='A',
+                                display_text='A',
+                                data='action=1'
+                            ),
+                            PostbackAction(
+                                label='B',
+                                display_text='B',
+                                data='action=2'
+                            )
+                        ]
+                    )
+                )
+                line_bot_api.reply_message(event.reply_token, buttons_template_message)
+
 #主程式
 import os
 if __name__ == "__main__":
