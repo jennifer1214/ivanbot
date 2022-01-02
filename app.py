@@ -86,7 +86,7 @@ def handle_message(event):
         )
     )
         line_bot_api.reply_message(event.reply_token, buttons_template_message)
-    elif re.match('AA',message):
+    elif re.match('AA'or'BB',buttons_template_message):
         buttons_template_message = TemplateSendMessage(
         alt_text='這個看不到',
         template=ButtonsTemplate(
@@ -95,13 +95,13 @@ def handle_message(event):
             text='選單功能－TemplateSendMessage',
             actions=[
                 PostbackAction(
-                    label='A',
-                    display_text='AA',
+                    label='C',
+                    display_text='CC',
                     data='action=0'
                 ),
                 PostbackAction(
-                    label='B',
-                    display_text='B',
+                    label='D',
+                    display_text='DD',
                     data='action=1'
                 )
             ]
