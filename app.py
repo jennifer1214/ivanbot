@@ -61,85 +61,135 @@ def callback():
 #訊息傳遞區塊
 ##### 基本上程式編輯都在這個function #####
 @handler.add(MessageEvent, message=TextMessage)
+
 def handle_message(event):
-    msg = str(event.message.text).upper().strip() # 使用者輸入的內容
-    profile = line_bot_api.get_profile(event.source.user_id)
-    uid = profile.user_id # 發訊者ID
-
-    if re.match("開始", msg):
-        message = week_menu()
-        line_bot_api.push_message(uid, message)
-    elif re.match(r'AA|BB', msg):
-        ani_data = Ani_info.get_category_data(msg)
-        message = ani_category(msg, ani_data)
-        line_bot_api.push_message(uid, message)
-    else:
-        line_bot_api.push_message(uid, TextSendMessage('bye'))
-
-def week_menu(): 
-    flex_message = FlexSendMessage(
-        alt_text = "Time Menu",
-        contents = {
-            "type": "bubble",
-            # "hero": {
-            #     "type": "image",
-            #     "url": "https://i.imgur.com/1sKXwFc.png",
-            #     "size": "full",
-            #     "aspectRatio": "5:2",
-            #     "aspectMode": "cover"
-            # },
-            "body": {
-                "type": "box",
-                "layout": "vertical",
-                "contents": [
-                {
-                    "type": "text",
-                    "text": "選擇",
-                    "weight": "bold",
-                    "size": "xl",
-                    "align": "center"
-                },
-                {
-                    "type": "box",
-                    "layout": "vertical",
-                    "spacing": "sm",
-                    "contents": [
-                    {
-                        "type": "box",
-                        "layout": "horizontal",
-                        "contents": [
-                        {
-                            "type": "button",
-                            "action": {
-                            "type": "message",
-                            "label": "A",
-                            "text": "AA"
-                            },
-                            "height": "sm",
-                            "style": "link"
-                        },
-                        {
-                            "type": "button",
-                            "action": {
-                            "type": "message",
-                            "label": "B",
-                            "text": "BB"
-                            },
-                            "height": "sm",
-                            "style": "link"
-                        }
-                        ],
-                        "paddingAll": "none"
-                    }
-                    ],
-                    "paddingAll": "xs"
-                }
-                ],
-                "paddingAll": "md"
-            }
-        }
+    message = text=event.message.text
+    if re.match('開始',message):
+        buttons_template_message = TemplateSendMessage(
+        alt_text='這個看不到',
+        template=ButtonsTemplate(
+            #thumbnail_image_url='https://i.imgur.com/wpM584d.jpg',
+            title='行銷搬進大程式',
+            text='選單功能－TemplateSendMessage',
+            actions=[
+                PostbackAction(
+                    label='A',
+                    display_text='AA',
+                    data='action=0'
+                ),
+                PostbackAction(
+                    label='B',
+                    display_text='BB',
+                    data='action=1'
+                )
+            ]
+        )
     )
-    return flex_message
+        line_bot_api.reply_message(event.reply_token, buttons_template_message)
+    elif re.match('AA',message):
+        buttons_template_message = TemplateSendMessage(
+        alt_text='這個看不到',
+        template=ButtonsTemplate(
+            #thumbnail_image_url='https://i.imgur.com/wpM584d.jpg',
+            title='行銷搬進大程式',
+            text='選單功能－TemplateSendMessage',
+            actions=[
+                PostbackAction(
+                    label='A',
+                    display_text='AA',
+                    data='action=0'
+                ),
+                PostbackAction(
+                    label='B',
+                    display_text='B',
+                    data='action=1'
+                )
+            ]
+        )
+    )
+        line_bot_api.reply_message(event.reply_token, buttons_template_message)
+    
+    else:
+        line_bot_api.reply_message(event.reply_token, TextSendMessage('bye'))
+# def handle_message(event):
+#     msg = str(event.message.text).upper().strip() # 使用者輸入的內容
+#     profile = line_bot_api.get_profile(event.source.user_id)
+#     uid = profile.user_id # 發訊者ID
+
+#     if re.match("開始", msg):
+#         message = week_menu()
+#         line_bot_api.push_message(uid, message)
+#     elif re.match(r'AA|BB', msg):
+#         ani_data = Ani_info.get_category_data(msg)
+#         message = ani_category(msg, ani_data)
+#         line_bot_api.push_message(uid, message)
+#     else:
+#         line_bot_api.push_message(uid, TextSendMessage('bye'))
+
+# def week_menu(): 
+#     flex_message = FlexSendMessage(
+#         alt_text = "Time Menu",
+#         contents = {
+#             "type": "bubble",
+#             # "hero": {
+#             #     "type": "image",
+#             #     "url": "https://i.imgur.com/1sKXwFc.png",
+#             #     "size": "full",
+#             #     "aspectRatio": "5:2",
+#             #     "aspectMode": "cover"
+#             # },
+#             "body": {
+#                 "type": "box",
+#                 "layout": "vertical",
+#                 "contents": [
+#                 {
+#                     "type": "text",
+#                     "text": "選擇",
+#                     "weight": "bold",
+#                     "size": "xl",
+#                     "align": "center"
+#                 },
+#                 {
+#                     "type": "box",
+#                     "layout": "vertical",
+#                     "spacing": "sm",
+#                     "contents": [
+#                     {
+#                         "type": "box",
+#                         "layout": "horizontal",
+#                         "contents": [
+#                         {
+#                             "type": "button",
+#                             "action": {
+#                             "type": "message",
+#                             "label": "A",
+#                             "text": "AA"
+#                             },
+#                             "height": "sm",
+#                             "style": "link"
+#                         },
+#                         {
+#                             "type": "button",
+#                             "action": {
+#                             "type": "message",
+#                             "label": "B",
+#                             "text": "BB"
+#                             },
+#                             "height": "sm",
+#                             "style": "link"
+#                         }
+#                         ],
+#                         "paddingAll": "none"
+#                     }
+#                     ],
+#                     "paddingAll": "xs"
+#                 }
+#                 ],
+#                 "paddingAll": "md"
+#             }
+#         }
+#     )
+#     return flex_message
 
 
 
