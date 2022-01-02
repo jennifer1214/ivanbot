@@ -60,6 +60,7 @@ def callback():
 
 #訊息傳遞區塊
 ##### 基本上程式編輯都在這個function #####
+@handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     message = text=event.message.text
     if re.match('開始',message):
@@ -86,7 +87,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, buttons_template_message)
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage('bye'))
-# @handler.add(MessageEvent, message=TextMessage)
+# 
 # def handle_message(event):
 #     msg = str(event.message.text).upper().strip() # 使用者輸入的內容
 #     profile = line_bot_api.get_profile(event.source.user_id)
@@ -163,58 +164,58 @@ def handle_message(event):
 #     )
 #     return flex_message
 
-# @handler.add(PostbackEvent)
-# def handle_postback(event):
-#     if event.postback.data == '1-a':  
-#         Carousel_template = TemplateSendMessage(
-#         alt_text='Carousel template',
-#         template=CarouselTemplate(
-#         columns=[
-#             CarouselColumn(
-#                 title='請輸入類股代號：',
-#                 text='請選擇產業類股',
-#                 actions=[
-#                     PostbackAction(
-#                             label='A',
-#                             text='AA',
-#                             data='A-2-a'
-#                             ),
-#                     PostbackAction(
-#                             label='B',
-#                             text='BB',
-#                             data='A-2-b'
-#                             ),
-#                 ]
-#             )
-#         ]
-#         )
-#     )
-#         line_bot_api.reply_message(event.reply_token,Carousel_template)
-#     elif event.postback.data == '1-b':  
-#         Carousel_template = TemplateSendMessage(
-#         alt_text='Carousel template',
-#         template=CarouselTemplate(
-#         columns=[
-#             CarouselColumn(
-#                 title='請輸入代號：',
-#                 text='請選擇類股',
-#                 actions=[
-#                     PostbackAction(
-#                             label='A',
-#                             text='AA',
-#                             data='B-2-a'
-#                             ),
-#                     PostbackAction(
-#                             label='B',
-#                             text='BB',
-#                             data='B-2-b'
-#                             ),
-#                 ]
-#             )
-#         ]
-#     )
-#     )
-#         line_bot_api.reply_message(event.reply_token,Carousel_template)    
+@handler.add(PostbackEvent)
+def handle_postback(event):
+    if event.postback.data == '1-a':  
+        Carousel_template = TemplateSendMessage(
+        alt_text='Carousel template',
+        template=CarouselTemplate(
+        columns=[
+            CarouselColumn(
+                title='請輸入類股代號：',
+                text='請選擇產業類股',
+                actions=[
+                    PostbackAction(
+                            label='A',
+                            text='AA',
+                            data='A-2-a'
+                            ),
+                    PostbackAction(
+                            label='B',
+                            text='BB',
+                            data='A-2-b'
+                            ),
+                ]
+            )
+        ]
+        )
+    )
+        line_bot_api.reply_message(event.reply_token,Carousel_template)
+    elif event.postback.data == '1-b':  
+        Carousel_template = TemplateSendMessage(
+        alt_text='Carousel template',
+        template=CarouselTemplate(
+        columns=[
+            CarouselColumn(
+                title='請輸入代號：',
+                text='請選擇類股',
+                actions=[
+                    PostbackAction(
+                            label='A',
+                            text='AA',
+                            data='B-2-a'
+                            ),
+                    PostbackAction(
+                            label='B',
+                            text='BB',
+                            data='B-2-b'
+                            ),
+                ]
+            )
+        ]
+    )
+    )
+        line_bot_api.reply_message(event.reply_token,Carousel_template)    
 
 #主程式
 import os
