@@ -68,17 +68,17 @@ def handle_message(event):
         alt_text='這個看不到',
         template=ButtonsTemplate(
             #thumbnail_image_url='https://i.imgur.com/wpM584d.jpg',
-            title='行銷搬進大程式',
-            text='選單功能－TemplateSendMessage',
+            title='心頭的硃砂痣，床前的白月光。/n都是愛而不得的初戀/n一個個寂寞的夜， 一杯杯傷情的酒。/n都是用來告別那些/n痛而不忘，恨而不舍的單戀',
+            text='還是單身狗？不用擔心/n歡迎公測這款全新戀愛養成遊戲/n即刻下載就送十連，再送大禮包/n/n Q. 請選擇你的攻略對象。',
             actions=[
                 PostbackAction(
-                    label='A',
-                    display_text='AA',
+                    label='A. 禁慾高冷係',
+                    display_text='你選擇了禁慾高冷係',
                     data='1-a'
                 ),
                 PostbackAction(
-                    label='B',
-                    display_text='BB',
+                    label='B. 黏人小奶狗',
+                    display_text='你選擇了黏人小奶狗',
                     data='1-b'
                 )
             ]
@@ -87,82 +87,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, buttons_template_message)
     else:
         line_bot_api.reply_message(event.reply_token, TextSendMessage('bye'))
-# 
-# def handle_message(event):
-#     msg = str(event.message.text).upper().strip() # 使用者輸入的內容
-#     profile = line_bot_api.get_profile(event.source.user_id)
-#     uid = profile.user_id # 發訊者ID
 
-#     if re.match("開始", msg):
-#         message = week_menu()
-#         line_bot_api.push_message(uid, message)
-#     else:
-#         line_bot_api.push_message(uid, TextSendMessage('bye'))
-
-# def week_menu(): 
-#     flex_message = FlexSendMessage(
-#         alt_text = "Time Menu",
-#         contents = {
-#             "type": "bubble",
-#             # "hero": {
-#             #     "type": "image",
-#             #     "url": "https://i.imgur.com/1sKXwFc.png",
-#             #     "size": "full",
-#             #     "aspectRatio": "5:2",
-#             #     "aspectMode": "cover"
-#             # },
-#             "body": {
-#                 "type": "box",
-#                 "layout": "vertical",
-#                 "contents": [
-#                 {
-#                     "type": "text",
-#                     "text": "選擇",
-#                     "weight": "bold",
-#                     "size": "xl",
-#                     "align": "center"
-#                 },
-#                 {
-#                     "type": "box",
-#                     "layout": "vertical",
-#                     "spacing": "sm",
-#                     "contents": [
-#                     {
-#                         "type": "box",
-#                         "layout": "horizontal",
-#                         "contents": [
-#                         {
-#                             "type": "button",
-#                             "action": {
-#                             "type": "message",
-#                             "label": "A",
-#                             "text": "AA"
-#                             },
-#                             "height": "sm",
-#                             "style": "link"
-#                         },
-#                         {
-#                             "type": "button",
-#                             "action": {
-#                             "type": "message",
-#                             "label": "B",
-#                             "text": "BB"
-#                             },
-#                             "height": "sm",
-#                             "style": "link"
-#                         }
-#                         ],
-#                         "paddingAll": "none"
-#                     }
-#                     ],
-#                     "paddingAll": "xs"
-#                 }
-#                 ],
-#                 "paddingAll": "md"
-#             }
-#         }
-#     )
-#     return flex_message
 
 @handler.add(PostbackEvent)
 def handle_postback(event):
@@ -172,17 +97,17 @@ def handle_postback(event):
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
-                title='請輸入類股代號：',
-                text='請選擇產業類股',
+                title='你選擇了禁慾高冷係：',
+                text='Q. 今天第一天約會，要穿什麼勒？',
                 actions=[
                     PostbackAction(
-                            label='A',
-                            text='AA',
+                            label='A. 日系甜美風。',
+                            text='這麼高冷，當然要用我可愛的外表溫暖你的心～',
                             data='A-2-a'
                             ),
                     PostbackAction(
-                            label='B',
-                            text='BB',
+                            label='B. 高冷御姐風。',
+                            text='約會當然要配合我家歐爸，站在一起才是神仙眷侶～',
                             data='A-2-b'
                             ),
                 ]
@@ -197,17 +122,17 @@ def handle_postback(event):
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
-                title='請輸入代號：',
-                text='請選擇類股',
+                title='你選擇了黏人小奶狗：',
+                text='Q. 今天第一天約會，要穿什麼勒？',
                 actions=[
                     PostbackAction(
-                            label='A',
-                            text='AA',
+                            label='A. 慵懶運動風。',
+                            text='我不管穿什麼都是女神，慵懶係不在話下～',
                             data='B-2-a'
                             ),
                     PostbackAction(
-                            label='B',
-                            text='BB',
+                            label='B. 英倫學院風。',
+                            text='可鹽可甜，不怕踩雷，第一次約會妥妥過啦～',
                             data='B-2-b'
                             ),
                 ]
