@@ -68,8 +68,8 @@ def handle_message(event):
         alt_text='這個看不到',
         template=ButtonsTemplate(
             #thumbnail_image_url='https://i.imgur.com/wpM584d.jpg',
-            title='心頭的硃砂痣，床前的白月光。/n都是愛而不得的初戀/n一個個寂寞的夜， 一杯杯傷情的酒。/n都是用來告別那些/n痛而不忘，恨而不舍的單戀',
-            text='還是單身狗？不用擔心/n歡迎公測這款全新戀愛養成遊戲/n即刻下載就送十連，再送大禮包/n/n Q. 請選擇你的攻略對象。',
+            title='心頭的硃砂痣，床前的白月光。\n都是愛而不得的初戀\n一個個寂寞的夜， 一杯杯傷情的酒。\n都是用來告別那些\n痛而不忘，恨而不舍的單戀',
+            text='還是單身狗？不用擔心\n歡迎公測這款全新戀愛養成遊戲\n即刻下載就送十連，再送大禮包\n\n Q. 請選擇你的攻略對象。',
             actions=[
                 PostbackAction(
                     label='A. 禁慾高冷係',
