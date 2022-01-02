@@ -10,19 +10,27 @@ Line Bot聊天機器人
 選擇按鈕ConfirmTemplate
 """
 #載入LineBot所需要的套件
-import os
-
 from flask import Flask, request, abort
 
-from linebot import (
-    LineBotApi, WebhookHandler
-)
-from linebot.exceptions import (
-    InvalidSignatureError
-)
-from linebot.models import *
+from linebot import LineBotApi, WebhookHandler
+from linebot.exceptions import InvalidSignatureError
+from linebot.models import (MessageEvent, TextMessage, TextSendMessage, PostbackEvent,
+                            PostbackAction, ConfirmTemplate, TemplateSendMessage, CarouselTemplate,
+                            CarouselColumn, URIAction)
+
+import configparser
+import Algorithm as alg
+import json
+import requests
 import re
+
+import modules
+
+
 app = Flask(__name__)
+
+config = configparser.ConfigParser()
+config.read('config.ini')
 
 
 # def get_tag_color(tag):
@@ -39,6 +47,21 @@ line_bot_api = LineBotApi('2bA2+2BpXpPhMxU5Mn6MJNanrwhM75WyW/bFDHUjbYIrdB8cufjwH
 handler = WebhookHandler('7ab781240bed864ae1ae0e554acf3475')
 
 line_bot_api.push_message('Ufa79e88066b7a65bae8d131a1f1f9a0c', TextSendMessage(text='歡迎光臨，請輸入：開始'))
+
+
+
+drink_confirm = ConfirmTemplate(text="飲料是必要條件嗎？", actions=[
+        PostbackAction(label="Yes", data="飲料"),
+        PostbackAction(label="No", data="None")
+    ])
+drink_confirm_template = TemplateSendMessage(alt_text="confirm alt text", template=drink_confirm)
+
+aircon_confirm = ConfirmTemplate(text="冷氣是必要條件嗎？", actions=[
+        PostbackAction(label="Yes", data="冷氣"),
+        PostbackAction(label="No", data="不冷氣")
+    ])
+aircon_confirm_template = TemplateSendMessage(alt_text="confirm alt text", template=aircon_confirm)
+
 
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
@@ -702,8 +725,18 @@ def handle_postback(event):
 
 
 
-#主程式
-import os
+# #主程式
+# import os
+# if __name__ == "__main__":
+#     port = int(os.environ.get('PORT', 5000))
+#     app.run(host='0.0.0.0', port=port)
 if __name__ == "__main__":
-    port = int(os.environ.get('PORT', 5000))
-    app.run(host='0.0.0.0', port=port)
+    '''rich_menu_list = line_bot_api.get_rich_menu_list()
+    for rich in rich_menu_list:
+        line_bot_api.delete_rich_menu(rich.rich_menu_id)'''
+    
+    rich_menu_list = line_bot_api.get_rich_menu_list()
+    for rich_menu in rich_menu_list:
+        print(rich_menu.rich_menu_id)
+    app.run(debug=True)
+    
