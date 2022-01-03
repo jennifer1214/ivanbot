@@ -96,12 +96,12 @@ def handle_postback(event):
                     PostbackAction(
                             label='A. 日系甜美風。',
                             text='這麼高冷，當然要用我可愛的外表溫暖你的心～',
-                            data='1-A-2-a'
+                            data='1A_2-a'
                             ),
                     PostbackAction(
                             label='B. 高冷御姐風。',
                             text='約會當然要配合我家歐爸，站在一起才是神仙眷侶～',
-                            data='1-A-2-b'
+                            data='1A_2-b'
                             ),
                 ]
             )
@@ -121,12 +121,12 @@ def handle_postback(event):
                     PostbackAction(
                             label='A. 慵懶運動風。',
                             text='我不管穿什麼都是女神，慵懶係不在話下～',
-                            data='1-B-2-a'
+                            data='1B_2-a'
                             ),
                     PostbackAction(
                             label='B. 英倫學院風。',
                             text='可鹽可甜，不怕踩雷，第一次約會妥妥過啦～',
-                            data='1-B-2-b'
+                            data='1B_2-b'
                             ),
                 ]
             )
