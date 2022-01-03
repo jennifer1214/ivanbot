@@ -25,13 +25,6 @@ import re
 app = Flask(__name__)
 
 
-# def get_tag_color(tag):
-#     if tag == "減分":
-#         tag_color = "#ED784A"
-#     elif tag == "加分":
-#         tag_color = "#FF334B"
-
-#     return tag_color
 
 # 必須放上自己的Channel Access Token
 line_bot_api = LineBotApi('2bA2+2BpXpPhMxU5Mn6MJNanrwhM75WyW/bFDHUjbYIrdB8cufjwH2MocJllX7W/0wnv55EIZtJUVCn5M2/kG8N4tqPx2coDmGFfFdBZPJp64AfGRrkFpn3T5Bs9C06KlgwPTZrRFHAzdG3Xz90ReQdB04t89/1O/w1cDnyilFU=')
@@ -103,12 +96,12 @@ def handle_postback(event):
                     PostbackAction(
                             label='A. 日系甜美風。',
                             text='這麼高冷，當然要用我可愛的外表溫暖你的心～',
-                            data='A-2-a'
+                            data='1-A-2-a'
                             ),
                     PostbackAction(
                             label='B. 高冷御姐風。',
                             text='約會當然要配合我家歐爸，站在一起才是神仙眷侶～',
-                            data='A-2-b'
+                            data='1-A-2-b'
                             ),
                 ]
             )
@@ -128,12 +121,12 @@ def handle_postback(event):
                     PostbackAction(
                             label='A. 慵懶運動風。',
                             text='我不管穿什麼都是女神，慵懶係不在話下～',
-                            data='B-2-a'
+                            data='1-B-2-a'
                             ),
                     PostbackAction(
                             label='B. 英倫學院風。',
                             text='可鹽可甜，不怕踩雷，第一次約會妥妥過啦～',
-                            data='B-2-b'
+                            data='1-B-2-b'
                             ),
                 ]
             )
