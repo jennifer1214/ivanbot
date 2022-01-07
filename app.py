@@ -102,12 +102,12 @@ def handle_postback(event):
                 actions=[
                     PostbackAction(
                             label='A. 先去逛攤位',
-                            text='這麼高冷，當然要先去逛攤位～',
+                            display_text='這麼高冷，當然要先去逛攤位～',
                             data='1a-2a'
                             ),
                     PostbackAction(
                             label='B. 先去看表演',
-                            text='陽光開朗型，先去看表演～',
+                            display_text='陽光開朗型，先去看表演～',
                             data='1a-2b'
                             )
                 ]
@@ -127,12 +127,12 @@ def handle_postback(event):
                 actions=[
                     PostbackAction(
                             label='A. 去大操場逛逛。',
-                            text='操場逛逛～',
+                            display_text='操場逛逛～',
                             data='1b-2a'
                             ),
                     PostbackAction(
                             label='B. 去逛班級攤位',
-                            text='班級攤位～',
+                            display_text='班級攤位～',
                             data='1b-2b'
                             )
                 ]
@@ -152,14 +152,34 @@ def handle_postback(event):
                 actions=[
                     PostbackAction(
                             label='A. 到頭蹲下。',
-                            text='到頭蹲下～',
+                            display_text='到頭蹲下～',
                             data='1b-2a-3a'
                             ),
                     PostbackAction(
                             label='B. 帥氣得踢回去',
-                            text='帥氣得踢回去～',
+                            display_text='帥氣得踢回去～',
                             data='1b-2a-3b'
                             ),
+                ]
+            )
+        ]
+        )
+    )
+        line_bot_api.reply_message(event.reply_token,Carousel_template)
+    elif event.postback.data == '1b-2a-3a':  
+        Carousel_template = TemplateSendMessage(
+        alt_text='Carousel template',
+        template=CarouselTemplate(
+        columns=[
+            CarouselColumn(
+                title='陽光同學帥氣的把球踢了回去後，被場上踢球的同學硬拉著一起比一場。濫好人陽光同學拒絕不了，於是當你等他比完時休息時間以結束。。。',
+                text='失敗，是否要重新開始遊戲',
+                actions=[
+                    PostbackAction(
+                            label='A. 是',
+                            text='開始',
+                            data='開始'
+                            )
                 ]
             )
         ]
