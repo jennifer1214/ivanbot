@@ -116,7 +116,7 @@ def handle_postback(event):
         )
     )
         line_bot_api.reply_message(event.reply_token,Carousel_template)
-    elif event.postback.data == '1b':  #路線9
+    elif event.postback.data == '1b':  
         Carousel_template = TemplateSendMessage(
         alt_text='Carousel template',
         template=CarouselTemplate(
@@ -134,21 +134,21 @@ def handle_postback(event):
                             label='B. 去逛班級攤位',
                             text='班級攤位～',
                             data='1b-2b'
-                            ),
+                            )
                 ]
             )
         ]
         )
     )
         line_bot_api.reply_message(event.reply_token,Carousel_template)
-    elif event.postback.data == '1b-2a':  #路線9
+    elif event.postback.data == '1b-2a':  
         Carousel_template = TemplateSendMessage(
         alt_text='Carousel template',
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
                 title='一路上陽光同學都跟你有說有笑，這時你們走到大操場，突然有一個足球飛過來，這時你會？',
-                text='你選擇了去操場逛逛',
+                text='你選擇了去大操場逛逛',
                 actions=[
                     PostbackAction(
                             label='A. 到頭蹲下。',
@@ -159,15 +159,33 @@ def handle_postback(event):
                             label='B. 帥氣得踢回去',
                             text='帥氣得踢回去～',
                             data='1b-2a-3b'
-                            ),
+                            )
                 ]
             )
         ]
         )
     )
         line_bot_api.reply_message(event.reply_token,Carousel_template)
-
-    
+    elif event.postback.data == '1b-2a-3a':  
+        Carousel_template = TemplateSendMessage(
+        alt_text='路線9',
+        template=CarouselTemplate(
+        columns=[
+            CarouselColumn(
+                title='陽光同學帥氣的把球踢了回去後，被場上踢球的同學硬拉著一起比一場。濫好人陽光同學拒絕不了，於是當你等他比完時休息時間以結束。。。',
+                text='失敗，是否要重新開始遊戲',
+                actions=[
+                    PostbackAction(
+                            label='A. 是',
+                            text='重新開始',
+                            data='開始'
+                            )
+                ]
+            )
+        ]
+        )
+    )
+        line_bot_api.reply_message(event.reply_token,Carousel_template)
 
 #主程式
 import os
