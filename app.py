@@ -69,7 +69,7 @@ def handle_message(event):
         template=ButtonsTemplate(
             thumbnail_image_url='https://raw.githubusercontent.com/jennifer1214/ivanbot/main/%E6%9C%AA%E5%91%BD%E5%90%8D.png',
             title='今天就是一年一度的校慶園遊會。這是你期待已久的一天，校內除了各式各樣的小攤位還不同社團精心策劃的表演',
-            text='趁著班上攤位的空擋想出去逛逛，這時你會找？',
+            text='妳趁著班上攤位的空擋想出去逛逛，這時你會找？',
             actions=[
                 PostbackAction(
                     label='A. 鄰座的禁慾高冷系同學',
@@ -77,7 +77,7 @@ def handle_message(event):
                     data='1a'
                 ),
                 PostbackAction(
-                     label='B. 班上的陽光開朗型同學',
+                    label='B. 班上的陽光開朗型同學',
                     display_text='你選擇了班上的陽光開朗型同學',
                     data='1b'
                 )
