@@ -204,7 +204,7 @@ def handle_postback(event):
                             label='B. 好呀，來比一場',
                             display_text='比一場',
                             data='1b-2a-3b-4b'
-                            ),
+                            )
                 ]
             )
         ]
@@ -296,6 +296,162 @@ def handle_postback(event):
         )
     )
         line_bot_api.reply_message(event.reply_token,Carousel_template)
+    elif event.postback.data == '1b-2b':  
+        Carousel_template = TemplateSendMessage(
+        alt_text='Carousel template',
+        template=CarouselTemplate(
+        columns=[
+            CarouselColumn(
+                title='你拉著陽光同學一起衝出了教室，走到樓梯口後，你會？',
+                text='你選擇了去大操場逛逛，一路上陽光同學都跟你有說有笑',
+                actions=[
+                    PostbackAction(
+                            label='A. 一班的女僕咖啡',
+                            display_text='女僕咖啡',
+                            data='1b-2b-3a'
+                            ),
+                    PostbackAction(
+                            label='B. 三班的二手市集',
+                            display_text='二手市集',
+                            data='1b-2b-3b'
+                            )
+                ]
+            )
+        ]
+        )
+    )
+        line_bot_api.reply_message(event.reply_token,Carousel_template)
+    elif event.postback.data == '1b-2b-3a':  
+        Carousel_template = TemplateSendMessage(
+        alt_text='Carousel template',
+        template=CarouselTemplate(
+        columns=[
+            CarouselColumn(
+                title='你和陽光同學一同入座後，你會點？',
+                text='你選擇了去女僕咖啡',
+                actions=[
+                    PostbackAction(
+                            label='A. 草莓聖代，兩人分著吃感情更升溫',
+                            display_text='草莓聖代',
+                            data='1b-2b-3a-4a'
+                            ),
+                    PostbackAction(
+                            label='B. 原味鬆餅，兩人分著吃感情更升溫',
+                            display_text='原味鬆餅',
+                            data='1b-2b-3a-4b'
+                            )
+                ]
+            )
+        ]
+        )
+    )
+        line_bot_api.reply_message(event.reply_token,Carousel_template)
+    elif event.postback.data == '1b-2b-3a-4a':  #路線13 END
+        Carousel_template = TemplateSendMessage(
+        alt_text='Carousel template',
+        template=CarouselTemplate(
+        columns=[
+            CarouselColumn(
+                title='陽光同學看似大大咧咧，但其實重度潔癖。聖代雖然浪漫，但融化的太快到後面看起來噁心',
+                text='陽光同學接受不了，好感度歸零。遊戲失敗，是否要重新開始遊戲？',
+                actions=[
+                    PostbackAction(
+                            label='A. 是',
+                            text='重新開始',
+                            data='開始'
+                            )
+                ]
+            )
+        ]
+        )
+    )
+        line_bot_api.reply_message(event.reply_token,Carousel_template)
+    elif event.postback.data == '1b-2b-3a-4b':  
+        Carousel_template = TemplateSendMessage(
+        alt_text='Carousel template',
+        template=CarouselTemplate(
+        columns=[
+            CarouselColumn(
+                title='你們兩個人有說有笑的吃著鬆餅討論著等一下一要去逛哪裡，這時你會？',
+                text='你選擇了原味鬆餅',
+                actions=[
+                    PostbackAction(
+                            label='A. 看陽光同學想逛哪裡',
+                            display_text='陽光同學想逛哪裡',
+                            data='1b-2b-3a-4b-5a'
+                            ),
+                    PostbackAction(
+                            label='B. 去逛三班的二手市集',
+                            display_text='二手市集',
+                            data='1b-2b-3a-4b-5b'
+                            )
+                ]
+            )
+        ]
+        )
+    )
+        line_bot_api.reply_message(event.reply_token,Carousel_template)
+    elif event.postback.data == '1b-2b-3a-4a-5a':  #路線14 END
+        Carousel_template = TemplateSendMessage(
+        alt_text='Carousel template',
+        template=CarouselTemplate(
+        columns=[
+            CarouselColumn(
+                title='陽光同學選擇了去大操場跟朋友們踢足球，你默默的在旁邊看著，就這樣休息時間結束',
+                text='最後沒有跟陽光同學增近到感情。遊戲失敗，是否要重新開始遊戲？',
+                actions=[
+                    PostbackAction(
+                            label='A. 是',
+                            text='重新開始',
+                            data='開始'
+                            )
+                ]
+            )
+        ]
+        )
+    )
+        line_bot_api.reply_message(event.reply_token,Carousel_template)
+    elif event.postback.data == '1b-2b-3a-4a-5b':  #路線15 END
+        Carousel_template = TemplateSendMessage(
+        alt_text='Carousel template',
+        template=CarouselTemplate(
+        columns=[
+            CarouselColumn(
+                title='陽光同學早就聽說二手市集很有趣於是便一起去逛了二手市集，你們度過了愉快的時光',
+                text='之後陽光同學也會時不時的約你出去。恭喜達成『友達』成就，是否要重新開始遊戲？',
+                actions=[
+                    PostbackAction(
+                            label='A. 是',
+                            text='重新開始',
+                            data='開始'
+                            )
+                ]
+            )
+        ]
+        )
+    )
+        line_bot_api.reply_message(event.reply_token,Carousel_template)
+    elif event.postback.data == '1b-2b-3b':  #路線16 END
+        Carousel_template = TemplateSendMessage(
+        alt_text='Carousel template',
+        template=CarouselTemplate(
+        columns=[
+            CarouselColumn(
+                title='陽光同學表示想吃東西，導致意見分歧。最後他不情願的先陪妳去了二手市集',
+                text='好感度直接歸零。遊戲失敗，是否要重新開始遊戲？',
+                actions=[
+                    PostbackAction(
+                            label='A. 是',
+                            text='重新開始',
+                            data='開始'
+                            )
+                ]
+            )
+        ]
+        )
+    )
+        line_bot_api.reply_message(event.reply_token,Carousel_template)
+
 
 #主程式
 import os
