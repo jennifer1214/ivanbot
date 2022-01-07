@@ -63,7 +63,7 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     message = text=event.message.text
-    if (message=='開始' or event.postback.data == '重新開始'):
+    if re.match('開始',message):
         buttons_template_message = TemplateSendMessage(
         alt_text='這個看不到',
         template=ButtonsTemplate(
@@ -177,28 +177,8 @@ def handle_postback(event):
                 actions=[
                     PostbackAction(
                             label='A.	是',
-                            text='重新開始遊戲',
-                            data='遊戲'
-                            )
-                ]
-            )
-        ]
-        )
-    )
-        line_bot_api.reply_message(event.reply_token,Carousel_template)
-    elif event.postback.data == '重新開始遊戲':  
-        Carousel_template = TemplateSendMessage(
-        alt_text='Carousel template',
-        template=CarouselTemplate(
-        columns=[
-            CarouselColumn(
-                title='陽光同學帥氣的把球踢了回去後，被場上踢球的同學硬拉著一起比一場。濫好人陽光同學拒絕不了，於是當你等他比完時休息時間以結束。。。',
-                text='失敗，是否要重新開始遊戲',
-                actions=[
-                    PostbackAction(
-                            label='A.	是',
-                            text='重新開始遊戲',
-                            data='重新開始遊戲'
+                            text='重新開始',
+                            data='重新開始'
                             )
                 ]
             )
