@@ -116,9 +116,9 @@ def handle_postback(event):
         )
     )
         line_bot_api.reply_message(event.reply_token,Carousel_template)
-    elif event.postback.data == '1b':  #路線9
+    elif event.postback.data == '1b':
         Carousel_template = TemplateSendMessage(
-        alt_text='Carousel template',
+        alt_text='路線9',
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
@@ -141,9 +141,9 @@ def handle_postback(event):
         )
     )
         line_bot_api.reply_message(event.reply_token,Carousel_template)
-    elif event.postback.data == '1b-2a':  #路線9
+    elif event.postback.data == '1b-2a':
         Carousel_template = TemplateSendMessage(
-        alt_text='Carousel template',
+        alt_text='路線9',
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
@@ -166,9 +166,9 @@ def handle_postback(event):
         )
     )
         line_bot_api.reply_message(event.reply_token,Carousel_template)
-    elif event.postback.data == '1b-2a-3a':  
+    elif event.postback.data == '1b-2a-3a':
         Carousel_template = TemplateSendMessage(
-        alt_text='Carousel template',
+        alt_text='路線9',
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
@@ -178,14 +178,37 @@ def handle_postback(event):
                     PostbackAction(
                             label='A.	是',
                             text='開始',
-                            data='開始'
+                            data='重來'
                             )
                 ]
             )
         ]
         )
     )
-        line_bot_api.reply_message(event.reply_token,Carousel_template)    
+        line_bot_api.reply_message(event.reply_token,Carousel_template)
+        
+    elif event.postback.data == '重來':  
+        Carousel_template = TemplateSendMessage(
+            alt_text='重來',
+            template=ButtonsTemplate(
+            thumbnail_image_url='https://raw.githubusercontent.com/jennifer1214/ivanbot/main/%E6%9C%AA%E5%91%BD%E5%90%8D.png',
+            title='今天就是一年一度的校慶園遊會。這是你期待已久的一天，校內除了各式各樣的小攤位還不同社團精心策劃的表演',
+            text='妳趁著班上攤位的空擋想出去逛逛，這時你會找？',
+            actions=[
+                PostbackAction(
+                    label='A.	鄰座的禁慾高冷系同學',
+                    display_text='你選擇了鄰座的禁慾高冷系同學係',
+                    data='1a'
+                ),
+                PostbackAction(
+                    label='B.	班上的陽光開朗型同學',
+                    display_text='你選擇了班上的陽光開朗型同學',
+                    data='1b'
+                )
+            ]
+        )
+    )
+        line_bot_api.reply_message(event.reply_token,Carousel_template) 
 
 #主程式
 import os
