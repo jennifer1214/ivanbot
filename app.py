@@ -68,17 +68,17 @@ def handle_message(event):
         alt_text='這個看不到',
         template=ButtonsTemplate(
             thumbnail_image_url='https://raw.githubusercontent.com/jennifer1214/ivanbot/main/%E6%9C%AA%E5%91%BD%E5%90%8D.png',
-            title='今天就是一年一度的校慶園遊會。這是你期待已久的一天，校內除了各式各樣的小攤位還不同社團精心策劃的表演',
-            text='妳趁著班上攤位的空擋想出去逛逛，這時你會找？',
+            title='還是單身狗？不用擔心，歡迎公測這款全新戀愛養成遊戲即刻下載就送十連，再送大禮包',
+            text='Q. 請選擇你的攻略對象。',
             actions=[
                 PostbackAction(
-                    label='A.	鄰座的禁慾高冷系同學',
-                    display_text='你選擇了鄰座的禁慾高冷系同學係',
+                    label='A. 禁慾高冷係',
+                    display_text='你選擇了禁慾高冷係',
                     data='1a'
                 ),
                 PostbackAction(
-                    label='B.	班上的陽光開朗型同學',
-                    display_text='你選擇了班上的陽光開朗型同學',
+                    label='B. 黏人小奶狗',
+                    display_text='你選擇了黏人小奶狗',
                     data='1b'
                 )
             ]
@@ -97,17 +97,17 @@ def handle_postback(event):
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
-                title='你拉著鄰座的同學一起衝出了教室，走到樓梯口後，你會？',
-                text='你選擇了鄰座的禁慾高冷系同學：',
+                title='你選擇了禁慾高冷係：',
+                text='Q. 今天第一天約會，要穿什麼勒？',
                 actions=[
                     PostbackAction(
-                            label='A.	先去逛攤位。',
-                            text='這麼高冷，當然要先去逛攤位～',
+                            label='A. 日系甜美風。',
+                            text='這麼高冷，當然要用我可愛的外表溫暖你的心～',
                             data='1a-2a'
                             ),
                     PostbackAction(
-                            label='B.	先去看表演',
-                            text='陽光開朗型，先去看表演～',
+                            label='B. 高冷御姐風。',
+                            text='約會當然要配合我家歐爸，站在一起才是神仙眷侶～',
                             data='1a-2b'
                             ),
                 ]
@@ -116,7 +116,32 @@ def handle_postback(event):
         )
     )
         line_bot_api.reply_message(event.reply_token,Carousel_template)
-    
+    elif event.postback.data == '1b':  
+        Carousel_template = TemplateSendMessage(
+        alt_text='Carousel template',
+        template=CarouselTemplate(
+        columns=[
+            CarouselColumn(
+                title='你選擇了黏人小奶狗：',
+                text='Q. 今天第一天約會，要穿什麼勒？',
+                actions=[
+                    PostbackAction(
+                            label='A. 慵懶運動風。',
+                            text='我不管穿什麼都是女神，慵懶係不在話下～',
+                            data='2b-2a'
+                            ),
+                    PostbackAction(
+                            label='B. 英倫學院風。',
+                            text='可鹽可甜，不怕踩雷，第一次約會妥妥過啦～',
+                            data='2b-2b'
+                            ),
+                ]
+            )
+        ]
+        )
+    )
+        line_bot_api.reply_message(event.reply_token,Carousel_template)    
+
 #主程式
 import os
 if __name__ == "__main__":
