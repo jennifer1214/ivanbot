@@ -68,17 +68,17 @@ def handle_message(event):
         alt_text='這個看不到',
         template=ButtonsTemplate(
             thumbnail_image_url='https://raw.githubusercontent.com/jennifer1214/ivanbot/main/%E6%9C%AA%E5%91%BD%E5%90%8D.png',
-            title='還是單身狗？不用擔心，歡迎公測這款全新戀愛養成遊戲即刻下載就送十連，再送大禮包',
-            text='Q. 請選擇你的攻略對象。',
+            title='今天就是一年一度的校慶園遊會。這是你期待已久的一天，校內除了各式各樣的小攤位還不同社團精心策劃的表演',
+            text='妳趁著班上攤位的空擋想出去逛逛，這時你會找？',
             actions=[
                 PostbackAction(
-                    label='A. 禁慾高冷係',
-                    display_text='你選擇了禁慾高冷係',
+                    label='A. 鄰座的禁慾高冷系同學',
+                    display_text='你選擇了鄰座的禁慾高冷系同學係',
                     data='1a'
                 ),
                 PostbackAction(
-                    label='B. 黏人小奶狗',
-                    display_text='你選擇了黏人小奶狗',
+                    label='B. 班上的陽光開朗型同學',
+                    display_text='你選擇了班上的陽光開朗型同學',
                     data='1b'
                 )
             ]
@@ -101,7 +101,7 @@ def handle_postback(event):
                 text='你選擇了鄰座的禁慾高冷系同學：',
                 actions=[
                     PostbackAction(
-                            label='A. 先去逛攤位。',
+                            label='A. 先去逛攤位',
                             text='這麼高冷，當然要先去逛攤位～',
                             data='1a-2a'
                             ),
@@ -141,6 +141,32 @@ def handle_postback(event):
         )
     )
         line_bot_api.reply_message(event.reply_token,Carousel_template)
+    elif event.postback.data == '1b-2a':  #路線9
+        Carousel_template = TemplateSendMessage(
+        alt_text='Carousel template',
+        template=CarouselTemplate(
+        columns=[
+            CarouselColumn(
+                title='一路上陽光同學都跟你有說有笑，這時你們走到大操場，突然有一個足球飛過來，這時你會？',
+                text='你選擇了去操場逛逛',
+                actions=[
+                    PostbackAction(
+                            label='A. 到頭蹲下。',
+                            text='到頭蹲下～',
+                            data='1b-2a-3a'
+                            ),
+                    PostbackAction(
+                            label='B. 帥氣得踢回去',
+                            text='帥氣得踢回去～',
+                            data='1b-2a-3b'
+                            ),
+                ]
+            )
+        ]
+        )
+    )
+        line_bot_api.reply_message(event.reply_token,Carousel_template)
+
     
 
 #主程式
