@@ -116,77 +116,7 @@ def handle_postback(event):
         )
     )
         line_bot_api.reply_message(event.reply_token,Carousel_template)
-    elif event.postback.data == '1b':  #路線9
-        Carousel_template = TemplateSendMessage(
-        alt_text='Carousel template',
-        template=CarouselTemplate(
-        columns=[
-            CarouselColumn(
-                title='你拉著陽光同學一起衝出了教室，走到樓梯口後，你會？',
-                text='你選擇了班上的陽光開朗型同學',
-                actions=[
-                    PostbackAction(
-                            label='A.	去大操場逛逛。',
-                            text='操場逛逛～',
-                            data='1b-2a'
-                            ),
-                    PostbackAction(
-                            label='B.	去逛班級攤位',
-                            text='班級攤位～',
-                            data='1b-2b'
-                            ),
-                ]
-            )
-        ]
-        )
-    )
-        line_bot_api.reply_message(event.reply_token,Carousel_template)
-    elif event.postback.data == '1b-2a':  #路線9
-        Carousel_template = TemplateSendMessage(
-        alt_text='Carousel template',
-        template=CarouselTemplate(
-        columns=[
-            CarouselColumn(
-                title='一路上陽光同學都跟你有說有笑，這時你們走到大操場，突然有一個足球飛過來，這時你會？',
-                text='你選擇了班上的陽光開朗型同',
-                actions=[
-                    PostbackAction(
-                            label='A.	到頭蹲下。',
-                            text='到頭蹲下～',
-                            data='1b-2a-3a'
-                            ),
-                    PostbackAction(
-                            label='B.	帥氣得踢回去',
-                            text='帥氣得踢回去～',
-                            data='1b-2a-3b'
-                            ),
-                ]
-            )
-        ]
-        )
-    )
-        line_bot_api.reply_message(event.reply_token,Carousel_template)
-    elif event.postback.data == '1b-2a-3a':  
-        Carousel_template = TemplateSendMessage(
-        alt_text='Carousel template',
-        template=CarouselTemplate(
-        columns=[
-            CarouselColumn(
-                title='陽光同學帥氣的把球踢了回去後，被場上踢球的同學硬拉著一起比一場。濫好人陽光同學拒絕不了，於是當你等他比完時休息時間以結束。。。',
-                text='失敗，是否要重新開始遊戲',
-                actions=[
-                    PostbackAction(
-                            label='A.	是',
-                            text='重新開始',
-                            data='重新開始'
-                            )
-                ]
-            )
-        ]
-        )
-    )
-        line_bot_api.reply_message(event.reply_token,Carousel_template)    
-
+    
 #主程式
 import os
 if __name__ == "__main__":
