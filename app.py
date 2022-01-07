@@ -116,7 +116,7 @@ def handle_postback(event):
         )
     )
         line_bot_api.reply_message(event.reply_token,Carousel_template)
-    elif event.postback.data == '1b':  
+    elif event.postback.data == '1b':  #路線9
         Carousel_template = TemplateSendMessage(
         alt_text='Carousel template',
         template=CarouselTemplate(
@@ -141,7 +141,7 @@ def handle_postback(event):
         )
     )
         line_bot_api.reply_message(event.reply_token,Carousel_template)
-    elif event.postback.data == '1b-2a':  
+    elif event.postback.data == '1b-2a':  #路線9
         Carousel_template = TemplateSendMessage(
         alt_text='Carousel template',
         template=CarouselTemplate(
@@ -166,26 +166,7 @@ def handle_postback(event):
         )
     )
         line_bot_api.reply_message(event.reply_token,Carousel_template)
-    elif event.postback.data == '1b-2a-3a':  
-        Carousel_template = TemplateSendMessage(
-        alt_text='路線9',
-        template=CarouselTemplate(
-        columns=[
-            CarouselColumn(
-                title='陽光同學帥氣的把球踢了回去後，被場上踢球的同學硬拉著一起比一場。濫好人陽光同學拒絕不了，於是當你等他比完時休息時間以結束。。。',
-                text='失敗，是否要重新開始遊戲',
-                actions=[
-                    PostbackAction(
-                            label='A. 是',
-                            text='重新開始',
-                            data='開始'
-                            )
-                ]
-            )
-        ]
-        )
-    )
-        line_bot_api.reply_message(event.reply_token,Carousel_template)
+    
 
 #主程式
 import os
