@@ -177,7 +177,7 @@ def handle_postback(event):
                 actions=[
                     PostbackAction(
                             label='A.	是',
-                            text='開始',
+                            text='重新開始',
                             data='重來'
                             )
                 ]
