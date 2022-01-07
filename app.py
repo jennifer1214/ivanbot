@@ -147,8 +147,8 @@ def handle_postback(event):
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
-                title='一路上陽光同學都跟你有說有笑，這時你們走到大操場，突然有一個足球飛過來，這時你會？',
-                text='你選擇了班上的陽光開朗型同',
+                title='就在這時你們走到大操場，突然有一個足球飛過來，這時你會？',
+                text='你選擇了去大操場逛逛，一路上陽光同學都跟你有說有笑',
                 actions=[
                     PostbackAction(
                             label='A. 到頭蹲下。',
