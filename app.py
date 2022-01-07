@@ -134,6 +134,31 @@ def handle_postback(event):
                             label='B. 去逛班級攤位',
                             text='班級攤位～',
                             data='1b-2b'
+                            )
+                ]
+            )
+        ]
+        )
+    )
+        line_bot_api.reply_message(event.reply_token,Carousel_template)
+    elif event.postback.data == '1b-2a':  #路線9
+        Carousel_template = TemplateSendMessage(
+        alt_text='Carousel template',
+        template=CarouselTemplate(
+        columns=[
+            CarouselColumn(
+                title='一路上陽光同學都跟你有說有笑，這時你們走到大操場，突然有一個足球飛過來，這時你會？',
+                text='你選擇了班上的陽光開朗型同',
+                actions=[
+                    PostbackAction(
+                            label='A. 到頭蹲下。',
+                            text='到頭蹲下～',
+                            data='1b-2a-3a'
+                            ),
+                    PostbackAction(
+                            label='B. 帥氣得踢回去',
+                            text='帥氣得踢回去～',
+                            data='1b-2a-3b'
                             ),
                 ]
             )
@@ -141,7 +166,6 @@ def handle_postback(event):
         )
     )
         line_bot_api.reply_message(event.reply_token,Carousel_template)
-    
 
 #主程式
 import os
