@@ -172,7 +172,7 @@ def handle_postback(event):
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
-                title='陽光同學帥氣的把球踢回去，被場上同學拉著比一場。因為拒絕不了，當他比完時休息時間已經結束',
+                title='陽光同學帥氣的把球踢回去，因拒絕不了場上同學的比賽邀約，當結束時休息時間也結束了',
                 text='失敗，是否要重新開始遊戲',
                 actions=[
                     PostbackAction(
