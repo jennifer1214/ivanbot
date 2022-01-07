@@ -68,17 +68,17 @@ def handle_message(event):
         alt_text='這個看不到',
         template=ButtonsTemplate(
             thumbnail_image_url='https://raw.githubusercontent.com/jennifer1214/ivanbot/main/%E6%9C%AA%E5%91%BD%E5%90%8D.png',
-            title='還是單身狗？不用擔心，歡迎公測這款全新戀愛養成遊戲即刻下載就送十連，再送大禮包',
-            text='Q. 請選擇你的攻略對象。',
+            title='今天就是一年一度的校慶園遊會。這是你期待已久的一天，校內除了各式各樣的小攤位還不同社團精心策劃的表演',
+            text='趁著班上攤位的空擋想出去逛逛，這時你會找？',
             actions=[
                 PostbackAction(
-                    label='A. 禁慾高冷係',
-                    display_text='你選擇了禁慾高冷係',
+                    label='A. 鄰座的禁慾高冷系同學',
+                    display_text='你選擇了鄰座的禁慾高冷系同學係',
                     data='1a'
                 ),
                 PostbackAction(
-                    label='B. 黏人小奶狗',
-                    display_text='你選擇了黏人小奶狗',
+                     label='B. 班上的陽光開朗型同學',
+                    display_text='你選擇了班上的陽光開朗型同學',
                     data='1b'
                 )
             ]
