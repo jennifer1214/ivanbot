@@ -126,7 +126,7 @@ def handle_postback(event):
                 text='你選擇了班上的陽光開朗型同學',
                 actions=[
                     PostbackAction(
-                            label='A. 去大操場逛逛。',
+                            label='A. 去大操場逛逛',
                             display_text='操場逛逛～',
                             data='1b-2a'
                             ),
@@ -151,7 +151,7 @@ def handle_postback(event):
                 text='你選擇了去大操場逛逛，一路上陽光同學都跟你有說有笑',
                 actions=[
                     PostbackAction(
-                            label='A. 到頭蹲下。',
+                            label='A. 到頭蹲下',
                             display_text='到頭蹲下～',
                             data='1b-2a-3a'
                             ),
@@ -172,7 +172,7 @@ def handle_postback(event):
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
-                title='陽光同學帥氣的把球踢了回去後，被場上踢球的同學硬拉著一起比一場。濫好人陽光同學拒絕不了，於是當你等他比完時休息時間以結束。。。',
+                title='陽光同學帥氣的把球踢了回去，被場上同學拉著比一場。陽光同學拒絕不了，於是當他比完時休息時間已經結束',
                 text='失敗，是否要重新開始遊戲',
                 actions=[
                     PostbackAction(
