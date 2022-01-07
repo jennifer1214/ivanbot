@@ -391,7 +391,7 @@ def handle_postback(event):
         )
     )
         line_bot_api.reply_message(event.reply_token,Carousel_template)
-    elif event.postback.data == '1b-2b-3a-4a-5a':  #路線14 END
+    elif event.postback.data == '1b-2b-3a-4b-5a':  #路線14 END
         Carousel_template = TemplateSendMessage(
         alt_text='Carousel template',
         template=CarouselTemplate(
@@ -411,7 +411,7 @@ def handle_postback(event):
         )
     )
         line_bot_api.reply_message(event.reply_token,Carousel_template)
-    elif event.postback.data == '1b-2b-3a-4a-5b':  #路線15 END
+    elif event.postback.data == '1b-2b-3a-4b-5b':  #路線15 END
         Carousel_template = TemplateSendMessage(
         alt_text='Carousel template',
         template=CarouselTemplate(
