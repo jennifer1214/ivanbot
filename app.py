@@ -99,7 +99,7 @@ def handle_postback(event):
                             ),
                     PostbackAction(
                             label='B. 先去看表演',
-                            display_text='陽光開朗型，先去看表演～',
+                            display_text='這麼高冷，先去看表演～',
                             data='1a-2b'
                             )
                 ]
@@ -500,7 +500,7 @@ def handle_postback(event):
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
-                title='鄰座的同學雖然是個高冷系的孩子，但他其實怕黑怕鬼。被你拉去鬼屋後，他幾乎都不怎麼理你了。。。 BAD END',
+                title='鄰座的同學雖然是個高冷系，但其實怕黑怕鬼。被你拉去鬼屋後，他就不怎麼理你了',
                 text='失敗，是否要重新開始',
                 actions=[
                     PostbackAction(
@@ -521,7 +521,7 @@ def handle_postback(event):
         columns=[
             CarouselColumn(
                 title='你選擇了去占卜社的塔羅牌攤位：',
-                text='Q4. 你來到了塔羅牌攤位，拉著鄰座的同學一起坐了下來，這時你會想算?',
+                text='Q4. 你來到了塔羅牌攤位，拉著同學一起坐了下來，這時你會想算?',
                 actions=[
                     PostbackAction(
                             label='A.當然是算愛情 ',
@@ -546,7 +546,7 @@ def handle_postback(event):
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
-                title='鄰座的同學就一個鋼鐵直男，此時此刻的內心OS大概是：怎麼不算算學業？數學作業都是抄我的呢。。。 BAD END ',
+                title='同學就一個鋼鐵直男，此時此刻內心OS大概是：怎麼不算算學業？數學作業都抄我的呢',
                 text='失敗，是否要重新開始',
                 actions=[
                     PostbackAction(
@@ -592,7 +592,7 @@ def handle_postback(event):
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
-                title='鄰座的同學表示：你平常都在抄我的作業了，不該好好努力一下嗎？ BAD END  ',
+                title='鄰座的同學表示：你平常都在抄我的作業了，不該好好努力一下嗎？ BAD END',
                 text='失敗，是否要重新開始',
                 actions=[
                     PostbackAction(
@@ -614,7 +614,7 @@ def handle_postback(event):
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
-                title='每天下課你都會跟鄰座的同學去圖書館讀書，好感度刷刷的往上加～ HAPPY END ',
+                title='每天下課你都會跟鄰座的同學去圖書館讀書，好感度刷刷的往上加～ HAPPY END',
                 text='成功，恭喜攻略對象!是否要重新開始?',
                 actions=[
                     PostbackAction(
@@ -661,8 +661,8 @@ def handle_postback(event):
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
-                title='鄰座的同學其實很餓，只想去買點吃的才跟你出來。沒想道會被你強行拉去玩遊戲，你似乎被討厭了。。。BAD END ',
-                text='失敗，是否要重新開始',
+                title='鄰座的同學其實很餓，只想去買點吃的才跟你出來。沒想會被你拉去玩遊戲',
+                text='你似乎被討厭了。失敗，是否要重新開始',
                 actions=[
                     PostbackAction(
                             label='A. 是。',
@@ -729,7 +729,7 @@ def handle_postback(event):
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
-                title='賣辣炒年糕的班級有人是新冠肺炎無症狀確診者，很不幸的你們兩個吃完後都中標了BAD END ',
+                title='賣辣炒年糕的班級有人是新冠肺炎無症狀確診者，很不幸的你們兩個吃完後都中標',
                 text='失敗，是否要重新開始',
                 actions=[
                     PostbackAction(
@@ -751,8 +751,8 @@ def handle_postback(event):
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
-                title='園遊會後學校緊急公佈賣辣炒年糕的班級有肺炎確診者，直接停課大清消。鄰座的同學表示感謝你當初的明智之舉，之後你們反而變得更親密～HAPPY END',
-                text='成功，恭喜攻略對象!是否要重新開始?',
+                title='園遊會後學校緊急公佈賣辣炒年糕的班級有肺炎確診者，直接停課大清消。',
+                text='鄰座的同學表示感謝你當初的明智之舉，之後你們反而變得更親密～成功，恭喜攻略對象！是否要重新開始?',
                 actions=[
                     PostbackAction(
                             label='A. 是。',
