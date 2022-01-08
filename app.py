@@ -25,14 +25,6 @@ import re
 app = Flask(__name__)
 
 
-# def get_tag_color(tag):
-#     if tag == "減分":
-#         tag_color = "#ED784A"
-#     elif tag == "加分":
-#         tag_color = "#FF334B"
-
-#     return tag_color
-
 # 必須放上自己的Channel Access Token
 line_bot_api = LineBotApi('2bA2+2BpXpPhMxU5Mn6MJNanrwhM75WyW/bFDHUjbYIrdB8cufjwH2MocJllX7W/0wnv55EIZtJUVCn5M2/kG8N4tqPx2coDmGFfFdBZPJp64AfGRrkFpn3T5Bs9C06KlgwPTZrRFHAzdG3Xz90ReQdB04t89/1O/w1cDnyilFU=')
 # 必須放上自己的Channel Secret
@@ -451,9 +443,7 @@ def handle_postback(event):
         )
     )
         line_bot_api.reply_message(event.reply_token,Carousel_template)
-@handler.add(PostbackEvent)
-def handle_postback(event):
-    if event.postback.data == '1a-2a':  
+    elif event.postback.data == '1a-2a':  
         Carousel_template = TemplateSendMessage(
         alt_text='Carousel template',
         template=CarouselTemplate(
@@ -503,11 +493,8 @@ def handle_postback(event):
     )
     )
         line_bot_api.reply_message(event.reply_token,Carousel_template) 
-
-@handler.add(PostbackEvent)
-def handle_postback(event):
     #路線五結尾
-    if event.postback.data == '1a-2b-3a':  
+    elif event.postback.data == '1a-2b-3a':  
         Carousel_template = TemplateSendMessage(
         alt_text='Carousel template',
         template=CarouselTemplate(
@@ -552,11 +539,8 @@ def handle_postback(event):
     )
     )
         line_bot_api.reply_message(event.reply_token,Carousel_template) 
-
-@handler.add(PostbackEvent)
-def handle_postback(event):
     #路線六結尾
-    if event.postback.data == '1a-2b-3b-4a':  
+    elif event.postback.data == '1a-2b-3b-4a':  
         Carousel_template = TemplateSendMessage(
         alt_text='Carousel template',
         template=CarouselTemplate(
@@ -601,11 +585,8 @@ def handle_postback(event):
     )
     )
         line_bot_api.reply_message(event.reply_token,Carousel_template)    
-
-@handler.add(PostbackEvent)
-def handle_postback(event):
     #路線七結尾
-    if event.postback.data == '1a-2b-3b-4b-5a':  
+    elif event.postback.data == '1a-2b-3b-4b-5a':  
         Carousel_template = TemplateSendMessage(
         alt_text='Carousel template',
         template=CarouselTemplate(
@@ -647,10 +628,7 @@ def handle_postback(event):
     )
     )
         line_bot_api.reply_message(event.reply_token,Carousel_template) 
-
-@handler.add(PostbackEvent)
-def handle_postback(event):
-    if event.postback.data == '1a-2a-3a':  
+    elif event.postback.data == '1a-2a-3a':  
         Carousel_template = TemplateSendMessage(
         alt_text='Carousel template',
         template=CarouselTemplate(
@@ -697,11 +675,7 @@ def handle_postback(event):
     )
     )
         line_bot_api.reply_message(event.reply_token,Carousel_template)
-
-
-@handler.add(PostbackEvent)
-def handle_postback(event):
-    if event.postback.data == '1a-2a-3a-4a':  
+    elif event.postback.data == '1a-2a-3a-4a':  
         Carousel_template = TemplateSendMessage(
         alt_text='Carousel template',
         template=CarouselTemplate(
@@ -748,11 +722,8 @@ def handle_postback(event):
     )
     )
         line_bot_api.reply_message(event.reply_token,Carousel_template)
-
-#路線一結尾
-@handler.add(PostbackEvent)
-def handle_postback(event):
-    if event.postback.data == '1a-2a-3a-4a-5a':  
+    #路線一結尾
+    elif event.postback.data == '1a-2a-3a-4a-5a':  
         Carousel_template = TemplateSendMessage(
         alt_text='Carousel template',
         template=CarouselTemplate(
