@@ -451,7 +451,349 @@ def handle_postback(event):
         )
     )
         line_bot_api.reply_message(event.reply_token,Carousel_template)
+@handler.add(PostbackEvent)
+def handle_postback(event):
+    if event.postback.data == '1a-2a':  
+        Carousel_template = TemplateSendMessage(
+        alt_text='Carousel template',
+        template=CarouselTemplate(
+        columns=[
+            CarouselColumn(
+                title='你選擇了先去逛攤位：',
+                text='Q3. 眼前是各個班級擺放的攤位，有吃得有玩的。忙了一個早上，你會先？',
+                actions=[
+                    PostbackAction(
+                            label='A. 去買吃的。',
+                            display_text='去買吃的。',
+                            data='1a-2a-3a'
+                            ),
+                    PostbackAction(
+                            label='B. 去玩遊戲。',
+                            display_text='去玩遊戲。',
+                            data='1a-2a-3b'
+                            )
+                ]
+            )
+        ]
+        )
+    )
+        line_bot_api.reply_message(event.reply_token,Carousel_template)
+    elif event.postback.data == '1a-2b':  
+        Carousel_template = TemplateSendMessage(
+        alt_text='Carousel template',
+        template=CarouselTemplate(
+        columns=[
+            CarouselColumn(
+                title='你選擇了先去看表演：',
+                text='Q3. 你們走到了學校的大禮堂，發現眼前有許多不同的社團，這時你會?',
+                actions=[
+                    PostbackAction(
+                            label='A.去話劇社的鬼屋',
+                            display_text='去話劇社的鬼屋',
+                            data='1a-2b-3a'
+                            ),
+                    PostbackAction(
+                            label='B.去占卜社的塔羅牌攤位',
+                            display_text='去占卜社的塔羅牌攤位',
+                            data='1a-2b-3b'
+                            )
+                ]
+            )
+        ]
+    )
+    )
+        line_bot_api.reply_message(event.reply_token,Carousel_template) 
 
+@handler.add(PostbackEvent)
+def handle_postback(event):
+    #路線五結尾
+    if event.postback.data == '1a-2b-3a':  
+        Carousel_template = TemplateSendMessage(
+        alt_text='Carousel template',
+        template=CarouselTemplate(
+        columns=[
+            CarouselColumn(
+                title='鄰座的同學雖然是個高冷系的孩子，但他其實怕黑怕鬼。被你拉去鬼屋後，他幾乎都不怎麼理你了。。。 BAD END',
+                text='失敗，是否要重新開始',
+                actions=[
+                    PostbackAction(
+                            label='A. 是。',
+                            text='重新開始。',
+                            data='開始'
+                            )
+                ]
+            )
+        ]
+        )
+    )
+        line_bot_api.reply_message(event.reply_token,Carousel_template)
+    elif event.postback.data == '1a-2b-3b':  
+        Carousel_template = TemplateSendMessage(
+        alt_text='Carousel template',
+        template=CarouselTemplate(
+        columns=[
+            CarouselColumn(
+                title='你選擇了去占卜社的塔羅牌攤位：',
+                text='Q4. 你來到了塔羅牌攤位，拉著鄰座的同學一起坐了下來，這時你會想算?',
+                actions=[
+                    PostbackAction(
+                            label='A.當然是算愛情 ',
+                            display_text='當然是算愛情',
+                            data='1a-2b-3b-4a'
+                            ),
+                    PostbackAction(
+                            label='B.當然是算學業 ',
+                            display_text='當然是算學業 ',
+                            data='1a-2b-3b-4b'
+                            )
+                ]
+            )
+        ]
+    )
+    )
+        line_bot_api.reply_message(event.reply_token,Carousel_template) 
+
+@handler.add(PostbackEvent)
+def handle_postback(event):
+    #路線六結尾
+    if event.postback.data == '1a-2b-3b-4a':  
+        Carousel_template = TemplateSendMessage(
+        alt_text='Carousel template',
+        template=CarouselTemplate(
+        columns=[
+            CarouselColumn(
+                title='鄰座的同學就一個鋼鐵直男，此時此刻的內心OS大概是：怎麼不算算學業？數學作業都是抄我的呢。。。 BAD END ',
+                text='失敗，是否要重新開始',
+                actions=[
+                    PostbackAction(
+                            label='A. 是。',
+                            text='重新開始。',
+                            data='開始'
+                            )
+                ]
+            )
+        ]
+        )
+    )
+        line_bot_api.reply_message(event.reply_token,Carousel_template)
+    elif event.postback.data == '1a-2b-3b-4b':  
+        Carousel_template = TemplateSendMessage(
+        alt_text='Carousel template',
+        template=CarouselTemplate(
+        columns=[
+            CarouselColumn(
+                title='你選擇了當然是算學業：',
+                text='Q5. 算出結果似乎是缺乏動力和耐心，這時你會?',
+                actions=[
+                    PostbackAction(
+                            label='A.占卜不可太迷性，參考就好  ',
+                            display_text='占卜不可太迷性，參考就好',
+                            data='1a-2b-3b-4b-5a'
+                            ),
+                    PostbackAction(
+                            label='B.請鄰座的同學教你課業 ',
+                            display_text='請鄰座的同學教你課業 ',
+                            data='1a-2b-3b-4b-5b'
+                            )
+                ]
+            )
+        ]
+    )
+    )
+        line_bot_api.reply_message(event.reply_token,Carousel_template)    
+
+@handler.add(PostbackEvent)
+def handle_postback(event):
+    #路線七結尾
+    if event.postback.data == '1a-2b-3b-4b-5a':  
+        Carousel_template = TemplateSendMessage(
+        alt_text='Carousel template',
+        template=CarouselTemplate(
+        columns=[
+            CarouselColumn(
+                title='鄰座的同學表示：你平常都在抄我的作業了，不該好好努力一下嗎？ BAD END  ',
+                text='失敗，是否要重新開始',
+                actions=[
+                    PostbackAction(
+                            label='A. 是。',
+                            text='重新開始。',
+                            data='開始'
+                            )
+                ]
+            )
+        ]
+        )
+    )
+        line_bot_api.reply_message(event.reply_token,Carousel_template)
+        
+    #路線八結尾
+    elif event.postback.data == '1a-2b-3b-4b-5b':  
+        Carousel_template = TemplateSendMessage(
+        alt_text='Carousel template',
+        template=CarouselTemplate(
+        columns=[
+            CarouselColumn(
+                title='每天下課你都會跟鄰座的同學去圖書館讀書，好感度刷刷的往上加～ HAPPY END ',
+                text='成功，恭喜攻略對象!是否要重新開始?',
+                actions=[
+                    PostbackAction(
+                            label='A. 是。',
+                            text='重新開始。',
+                            data='開始'
+                            )
+                ]
+            )
+        ]
+    )
+    )
+        line_bot_api.reply_message(event.reply_token,Carousel_template) 
+
+@handler.add(PostbackEvent)
+def handle_postback(event):
+    if event.postback.data == '1a-2a-3a':  
+        Carousel_template = TemplateSendMessage(
+        alt_text='Carousel template',
+        template=CarouselTemplate(
+        columns=[
+            CarouselColumn(
+                title='你選擇了去買吃的：',
+                text='Q4. 你在猶豫要吃辣吵年糕還是臭豆腐，這時你會？',
+                actions=[
+                    PostbackAction(
+                            label='A. 問問鄰座同學該吃哪一個 。',
+                            display_text='問問鄰座同學該吃哪一個 。',
+                            data='1a-2a-3a-4a'
+                            ),
+                    PostbackAction(
+                            label='B. 兩個都買，反正我很餓 。',
+                            display_text='兩個都買，反正我很餓 。',
+                            data='1a-2a-3a-4b'
+                            )
+                ]
+            )
+        ]
+        )
+    )
+        line_bot_api.reply_message(event.reply_token,Carousel_template)
+    
+    #路線四結尾
+    elif event.postback.data == '1a-2a-3b':  
+        Carousel_template = TemplateSendMessage(
+        alt_text='Carousel template',
+        template=CarouselTemplate(
+        columns=[
+            CarouselColumn(
+                title='鄰座的同學其實很餓，只想去買點吃的才跟你出來。沒想道會被你強行拉去玩遊戲，你似乎被討厭了。。。BAD END ',
+                text='失敗，是否要重新開始',
+                actions=[
+                    PostbackAction(
+                            label='A. 是。',
+                            text='重新開始。',
+                            data='開始'
+                            )
+                ]
+            )
+        ]
+    )
+    )
+        line_bot_api.reply_message(event.reply_token,Carousel_template)
+
+
+@handler.add(PostbackEvent)
+def handle_postback(event):
+    if event.postback.data == '1a-2a-3a-4a':  
+        Carousel_template = TemplateSendMessage(
+        alt_text='Carousel template',
+        template=CarouselTemplate(
+        columns=[
+            CarouselColumn(
+                title='你選擇了問問鄰座同學該吃哪一個：',
+                text='Q5. 鄰座同學提議兩個都買，你們可以各一人一半。這時你會？',
+                actions=[
+                    PostbackAction(
+                            label='A. 接受提案拉近兩人的距離。',
+                            display_text='接受提案拉近兩人的距離。',
+                            data='1a-2a-3a-4a-5a'
+                            ),
+                    PostbackAction(
+                            label='B. 感覺不太好，最後都沒買  。',
+                            display_text='感覺不太好，最後都沒買 。',
+                            data='1a-2a-3a-4a-5b'
+                            )
+                ]
+            )
+        ]
+        )
+    )
+        line_bot_api.reply_message(event.reply_token,Carousel_template)
+
+    #路線三結尾
+    elif event.postback.data == '1a-2a-3a-4b':  
+        Carousel_template = TemplateSendMessage(
+        alt_text='Carousel template',
+        template=CarouselTemplate(
+        columns=[
+            CarouselColumn(
+                title='鄰座的同學覺得很無聊，完全被當空氣。你的好感度被降為負分。 BAD END',
+                text='失敗，是否要重新開始',
+                actions=[
+                    PostbackAction(
+                            label='A. 是。',
+                            text='重新開始。',
+                            data='開始'
+                            )
+                ]
+            )
+        ]
+    )
+    )
+        line_bot_api.reply_message(event.reply_token,Carousel_template)
+
+#路線一結尾
+@handler.add(PostbackEvent)
+def handle_postback(event):
+    if event.postback.data == '1a-2a-3a-4a-5a':  
+        Carousel_template = TemplateSendMessage(
+        alt_text='Carousel template',
+        template=CarouselTemplate(
+        columns=[
+            CarouselColumn(
+                title='賣辣炒年糕的班級有人是新冠肺炎無症狀確診者，很不幸的你們兩個吃完後都中標了。。。 BAD END ',
+                text='失敗，是否要重新開始',
+                actions=[
+                    PostbackAction(
+                            label='A. 是。',
+                            text='重新開始。',
+                            data='開始'
+                            )
+                ]
+            )
+        ]
+        )
+    )
+        line_bot_api.reply_message(event.reply_token,Carousel_template)
+
+#路線二結尾
+    elif event.postback.data == '1a-2a-3a-4a-5b':  
+        Carousel_template = TemplateSendMessage(
+        alt_text='Carousel template',
+        template=CarouselTemplate(
+        columns=[
+            CarouselColumn(
+                title='園遊會後學校緊急公佈賣辣炒年糕的班級有肺炎確診者，直接停課大清消。鄰座的同學表示感謝你當初的明智之舉，之後你們反而變得更親密～HAPPY END',
+                text='成功，恭喜攻略對象!是否要重新開始?',
+                actions=[
+                    PostbackAction(
+                            label='A. 是。',
+                            text='重新開始。',
+                            data='開始'
+                            )
+                ]
+            )
+        ]
+    )
+    )
+        line_bot_api.reply_message(event.reply_token,Carousel_template)
 
 #主程式
 import os
