@@ -168,7 +168,7 @@ def handle_postback(event):
                 text='遊戲失敗，是否要重新開始遊戲？',
                 actions=[
                     PostbackAction(
-                            label='A. 是',
+                            label='是',
                             text='重新開始',
                             data='開始'
                             )
@@ -238,7 +238,7 @@ def handle_postback(event):
                 text='之後你們也時常一起聊天，關係變得更好了。恭喜達成友情路線，是否要重新開始遊戲？',
                 actions=[
                     PostbackAction(
-                            label='A. 是',
+                            label='是',
                             text='重新開始',
                             data='開始'
                             )
@@ -258,7 +258,7 @@ def handle_postback(event):
                 text='隔天校方公佈賣辣炒年糕的班級有人是新冠肺炎無症狀確診者，很不信的你們兩個吃完後都中標了。遊戲失敗，是否要重新開始遊戲？',
                 actions=[
                     PostbackAction(
-                            label='A. 是',
+                            label='是',
                             text='重新開始',
                             data='開始'
                             )
@@ -278,7 +278,7 @@ def handle_postback(event):
                 text='之後陽光同學似乎因為你球踢得好，一直把你當兄弟TAT。恭喜達成『我們是好兄弟』成就，是否要重新開始遊戲？',
                 actions=[
                     PostbackAction(
-                            label='A. 是',
+                            label='是',
                             text='重新開始',
                             data='開始'
                             )
@@ -323,13 +323,13 @@ def handle_postback(event):
                 text='你選擇了去女僕咖啡',
                 actions=[
                     PostbackAction(
-                            label='A. 草莓聖代，兩人分著吃感情更升溫',
-                            display_text='草莓聖代',
+                            label='A. 草莓聖代',
+                            display_text='草莓聖代，兩人分著吃感情更升溫',
                             data='1b-2b-3a-4a'
                             ),
                     PostbackAction(
-                            label='B. 原味鬆餅，兩人分著吃感情更升溫',
-                            display_text='原味鬆餅',
+                            label='B. 原味鬆餅',
+                            display_text='原味鬆餅，兩人分著吃感情更升溫',
                             data='1b-2b-3a-4b'
                             )
                 ]
@@ -348,7 +348,7 @@ def handle_postback(event):
                 text='陽光同學接受不了，好感度歸零。遊戲失敗，是否要重新開始遊戲？',
                 actions=[
                     PostbackAction(
-                            label='A. 是',
+                            label='是',
                             text='重新開始',
                             data='開始'
                             )
@@ -393,7 +393,7 @@ def handle_postback(event):
                 text='最後沒有跟陽光同學增近到感情。遊戲失敗，是否要重新開始遊戲？',
                 actions=[
                     PostbackAction(
-                            label='A. 是',
+                            label='是',
                             text='重新開始',
                             data='開始'
                             )
@@ -413,7 +413,7 @@ def handle_postback(event):
                 text='之後陽光同學也會時不時的約你出去。恭喜達成『友達』成就，是否要重新開始遊戲？',
                 actions=[
                     PostbackAction(
-                            label='A. 是',
+                            label='是',
                             text='重新開始',
                             data='開始'
                             )
@@ -433,7 +433,7 @@ def handle_postback(event):
                 text='好感度直接歸零。遊戲失敗，是否要重新開始遊戲？',
                 actions=[
                     PostbackAction(
-                            label='A. 是',
+                            label='是',
                             text='重新開始',
                             data='開始'
                             )
@@ -504,7 +504,7 @@ def handle_postback(event):
                 text='失敗，是否要重新開始',
                 actions=[
                     PostbackAction(
-                            label='A. 是。',
+                            label='是',
                             text='重新開始',
                             data='開始'
                             )
@@ -550,7 +550,7 @@ def handle_postback(event):
                 text='失敗，是否要重新開始',
                 actions=[
                     PostbackAction(
-                            label='A. 是。',
+                            label='是',
                             text='重新開始',
                             data='開始'
                             )
@@ -596,7 +596,7 @@ def handle_postback(event):
                 text='失敗，是否要重新開始',
                 actions=[
                     PostbackAction(
-                            label='A. 是。',
+                            label='是',
                             text='重新開始',
                             data='開始'
                             )
@@ -618,7 +618,7 @@ def handle_postback(event):
                 text='成功，恭喜攻略對象!是否要重新開始?',
                 actions=[
                     PostbackAction(
-                            label='A. 是。',
+                            label='是',
                             text='重新開始',
                             data='開始'
                             )
@@ -665,7 +665,7 @@ def handle_postback(event):
                 text='你似乎被討厭了。失敗，是否要重新開始',
                 actions=[
                     PostbackAction(
-                            label='A. 是。',
+                            label='是',
                             text='重新開始',
                             data='開始'
                             )
@@ -712,7 +712,7 @@ def handle_postback(event):
                 text='失敗，是否要重新開始',
                 actions=[
                     PostbackAction(
-                            label='A. 是。',
+                            label='是',
                             text='重新開始',
                             data='開始'
                             )
@@ -733,7 +733,7 @@ def handle_postback(event):
                 text='失敗，是否要重新開始',
                 actions=[
                     PostbackAction(
-                            label='A. 是',
+                            label='是',
                             text='重新開始',
                             data='開始'
                             )
@@ -755,7 +755,7 @@ def handle_postback(event):
                 text='鄰座的同學表示感謝你當初的明智之舉，之後你們反而變得更親密～成功，恭喜攻略對象！是否要重新開始?',
                 actions=[
                     PostbackAction(
-                            label='A. 是。',
+                            label='是',
                             text='重新開始',
                             data='開始'
                             )
