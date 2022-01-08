@@ -505,7 +505,7 @@ def handle_postback(event):
                 actions=[
                     PostbackAction(
                             label='A. 是。',
-                            text='重新開始。',
+                            text='重新開始',
                             data='開始'
                             )
                 ]
@@ -551,7 +551,7 @@ def handle_postback(event):
                 actions=[
                     PostbackAction(
                             label='A. 是。',
-                            text='重新開始。',
+                            text='重新開始',
                             data='開始'
                             )
                 ]
@@ -597,7 +597,7 @@ def handle_postback(event):
                 actions=[
                     PostbackAction(
                             label='A. 是。',
-                            text='重新開始。',
+                            text='重新開始',
                             data='開始'
                             )
                 ]
@@ -619,7 +619,7 @@ def handle_postback(event):
                 actions=[
                     PostbackAction(
                             label='A. 是。',
-                            text='重新開始。',
+                            text='重新開始',
                             data='開始'
                             )
                 ]
@@ -666,7 +666,7 @@ def handle_postback(event):
                 actions=[
                     PostbackAction(
                             label='A. 是。',
-                            text='重新開始。',
+                            text='重新開始',
                             data='開始'
                             )
                 ]
@@ -713,7 +713,7 @@ def handle_postback(event):
                 actions=[
                     PostbackAction(
                             label='A. 是。',
-                            text='重新開始。',
+                            text='重新開始',
                             data='開始'
                             )
                 ]
@@ -733,8 +733,8 @@ def handle_postback(event):
                 text='失敗，是否要重新開始',
                 actions=[
                     PostbackAction(
-                            label='A. 是。',
-                            text='重新開始。',
+                            label='A. 是',
+                            text='重新開始',
                             data='開始'
                             )
                 ]
@@ -756,7 +756,7 @@ def handle_postback(event):
                 actions=[
                     PostbackAction(
                             label='A. 是。',
-                            text='重新開始。',
+                            text='重新開始',
                             data='開始'
                             )
                 ]
