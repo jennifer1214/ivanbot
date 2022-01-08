@@ -729,7 +729,7 @@ def handle_postback(event):
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
-                title='賣辣炒年糕的班級有人是新冠肺炎無症狀確診者，很不幸的你們兩個吃完後都中標了。。。 BAD END ',
+                title='賣辣炒年糕的班級有人是新冠肺炎無症狀確診者，很不幸的你們兩個吃完後都中標了BAD END ',
                 text='失敗，是否要重新開始',
                 actions=[
                     PostbackAction(
