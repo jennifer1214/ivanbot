@@ -54,7 +54,7 @@ def handle_message(event):
         buttons_template_message = TemplateSendMessage(
         alt_text='請點餐',
         template=ButtonsTemplate(
-            thumbnail_image_url='https://raw.githubusercontent.com/jennifer1214/ivanbot/main/%E6%9C%AA%E5%91%BD%E5%90%8D.png',
+            thumbnail_image_url='https://github.com/jennifer1214/ivanbot/blob/main/%E9%BB%9E%E9%A4%90.png?raw=true',
             title='這是你期待已久的一天，校內除了各式各樣的小攤位還不同社團精心策劃的表演',
             text='今天就是一年一度的校慶園遊會。趁著班上攤位的空擋想出去逛逛，這時你會找？',
             actions=[
