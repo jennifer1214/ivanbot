@@ -1,14 +1,9 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Jun  2 21:16:35 2021
+#!/usr/bin/env python
+# coding: utf-8
 
-@author: Ivan
-版權屬於「行銷搬進大程式」所有，若有疑問，可聯絡ivanyang0606@gmail.com
+# In[ ]:
 
-Line Bot聊天機器人
-第四章 選單功能
-選擇按鈕ConfirmTemplate
-"""
+
 #載入LineBot所需要的套件
 import os
 
@@ -64,12 +59,12 @@ def handle_message(event):
             text='今天就是一年一度的校慶園遊會。趁著班上攤位的空擋想出去逛逛，這時你會找？',
             actions=[
                 PostbackAction(
-                    label='A. 鄰座的禁慾高冷系同學',
+                    label='A.鄰座的禁慾高冷系同學',
                     display_text='你選擇了鄰座的禁慾高冷系同學',
                     data='1a'
                 ),
                 PostbackAction(
-                    label='B. 班上的陽光開朗型同學',
+                    label='B.班上的陽光開朗型同學',
                     display_text='你選擇了班上的陽光開朗型同學',
                     data='1b'
                 )
@@ -93,13 +88,13 @@ def handle_postback(event):
                 text='你選擇了鄰座的禁慾高冷系同學：',
                 actions=[
                     PostbackAction(
-                            label='A. 先去逛攤位',
-                            display_text='這麼高冷，當然要先去逛攤位～',
+                            label='A.先去逛攤位',
+                            display_text='當然先去逛攤位～',
                             data='1a-2a'
                             ),
                     PostbackAction(
-                            label='B. 先去看表演',
-                            display_text='這麼高冷，先去看表演～',
+                            label='B.先去看社團展演',
+                            display_text='當然先去看社團展演～',
                             data='1a-2b'
                             )
                 ]
@@ -118,12 +113,12 @@ def handle_postback(event):
                 text='你選擇了班上的陽光開朗型同學',
                 actions=[
                     PostbackAction(
-                            label='A. 去大操場逛逛',
+                            label='A.去大操場逛逛',
                             display_text='操場逛逛～',
                             data='1b-2a'
                             ),
                     PostbackAction(
-                            label='B. 去逛班級攤位',
+                            label='B.去逛班級攤位',
                             display_text='班級攤位～',
                             data='1b-2b'
                             )
@@ -143,13 +138,13 @@ def handle_postback(event):
                 text='你選擇了去大操場逛逛，一路上陽光同學都跟你有說有笑',
                 actions=[
                     PostbackAction(
-                            label='A. 到頭蹲下',
-                            display_text='到頭蹲下',
+                            label='A.抱頭蹲下',
+                            display_text='抱頭蹲下～',
                             data='1b-2a-3a'
                             ),
                     PostbackAction(
-                            label='B. 帥氣得踢回去',
-                            display_text='帥氣得踢回去',
+                            label='B.帥氣得踢回去',
+                            display_text='帥氣得踢回去～',
                             data='1b-2a-3b'
                             ),
                 ]
@@ -188,13 +183,13 @@ def handle_postback(event):
                 text='你選擇了帥氣得踢回去',
                 actions=[
                     PostbackAction(
-                            label='A. 改天再比吧，先去買吃的',
-                            display_text='去買吃的',
+                            label='A.先去買吃的',
+                            display_text='改天再比吧先去買吃的',
                             data='1b-2a-3b-4a'
                             ),
                     PostbackAction(
-                            label='B. 好呀，來比一場',
-                            display_text='比一場',
+                            label='B.比一場',
+                            display_text='好呀，來比一場',
                             data='1b-2a-3b-4b'
                             )
                 ]
@@ -213,12 +208,12 @@ def handle_postback(event):
                 text='你選擇了去買吃的',
                 actions=[
                     PostbackAction(
-                            label='A. 串燒！',
+                            label='A.串燒！',
                             display_text='串燒！',
                             data='1b-2a-3b-4a-5a'
                             ),
                     PostbackAction(
-                            label='B. 辣炒年糕',
+                            label='B.辣炒年糕',
                             display_text='辣炒年糕',
                             data='1b-2a-3b-4a-5b'
                             ),
@@ -254,8 +249,8 @@ def handle_postback(event):
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
-                title='你買了一碗和陽光同學分著吃，之後又回就是值班。',
-                text='隔天校方公佈賣辣炒年糕的班級有人是新冠肺炎無症狀確診者，很不信的你們兩個吃完後都中標了。遊戲失敗，是否要重新開始遊戲？',
+                title='你買了一碗和陽光同學分著吃，之後就回教室值班。',
+                text='隔天校方公佈賣辣炒年糕的班級有人是新冠肺炎無症狀確診者，很不幸的你們兩個吃完後都中標了。遊戲失敗，是否要重新開始遊戲？',
                 actions=[
                     PostbackAction(
                             label='是',
@@ -274,7 +269,7 @@ def handle_postback(event):
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
-                title='你們開開心心的比完了一場後休息時間也差不多結束了，你們衝衝忙忙地回教室。',
+                title='你們開開心心的比完了一場後休息時間也差不多結束了，你們匆匆忙忙地回教室。',
                 text='之後陽光同學似乎因為你球踢得好，一直把你當兄弟TAT。恭喜達成『我們是好兄弟』成就，是否要重新開始遊戲？',
                 actions=[
                     PostbackAction(
@@ -298,12 +293,12 @@ def handle_postback(event):
                 text='你選擇了去大操場逛逛，一路上陽光同學都跟你有說有笑',
                 actions=[
                     PostbackAction(
-                            label='A. 一班的女僕咖啡',
+                            label='A.一班的女僕咖啡',
                             display_text='女僕咖啡',
                             data='1b-2b-3a'
                             ),
                     PostbackAction(
-                            label='B. 三班的二手市集',
+                            label='B.三班的二手市集',
                             display_text='二手市集',
                             data='1b-2b-3b'
                             )
@@ -323,12 +318,12 @@ def handle_postback(event):
                 text='你選擇了去女僕咖啡',
                 actions=[
                     PostbackAction(
-                            label='A. 草莓聖代',
+                            label='A.草莓聖代',
                             display_text='草莓聖代，兩人分著吃感情更升溫',
                             data='1b-2b-3a-4a'
                             ),
                     PostbackAction(
-                            label='B. 原味鬆餅',
+                            label='B.原味鬆餅',
                             display_text='原味鬆餅，兩人分著吃感情更升溫',
                             data='1b-2b-3a-4b'
                             )
@@ -368,12 +363,12 @@ def handle_postback(event):
                 text='你選擇了原味鬆餅',
                 actions=[
                     PostbackAction(
-                            label='A. 看陽光同學想逛哪裡',
+                            label='A.看陽光同學想逛哪裡',
                             display_text='陽光同學想逛哪裡',
                             data='1b-2b-3a-4b-5a'
                             ),
                     PostbackAction(
-                            label='B. 去逛三班的二手市集',
+                            label='B.去逛三班的二手市集',
                             display_text='二手市集',
                             data='1b-2b-3a-4b-5b'
                             )
@@ -410,7 +405,7 @@ def handle_postback(event):
         columns=[
             CarouselColumn(
                 title='陽光同學早就聽說二手市集很有趣於是便一起去逛了二手市集，你們度過了愉快的時光',
-                text='之後陽光同學也會時不時的約你出去。恭喜達成『友達』成就，是否要重新開始遊戲？',
+                text='之後陽光同學也會時不時的約你出去。恭喜遊戲成功!是否要重新開始遊戲？',
                 actions=[
                     PostbackAction(
                             label='是',
@@ -449,16 +444,16 @@ def handle_postback(event):
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
-                title='你選擇了先去逛攤位：',
-                text='Q3. 眼前是各個班級擺放的攤位，有吃得有玩的。忙了一個早上，你會先？',
+                title='眼前是各個班級擺放的攤位，有吃得有玩的。忙了一個早上，你會先？',
+                text='你選擇了先去逛攤位',
                 actions=[
                     PostbackAction(
-                            label='A. 去買吃的。',
+                            label='A.去買吃的。',
                             display_text='去買吃的。',
                             data='1a-2a-3a'
                             ),
                     PostbackAction(
-                            label='B. 去玩遊戲。',
+                            label='B.去玩遊戲。',
                             display_text='去玩遊戲。',
                             data='1a-2a-3b'
                             )
@@ -474,8 +469,8 @@ def handle_postback(event):
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
-                title='你選擇了先去看表演：',
-                text='Q3. 你們走到了學校的大禮堂，發現眼前有許多不同的社團，這時你會?',
+                title='你們走到了學校的大禮堂，發現眼前有許多不同的社團，這時你會?',
+                text='你選擇了先去看社團展演',
                 actions=[
                     PostbackAction(
                             label='A.去話劇社的鬼屋',
@@ -520,8 +515,8 @@ def handle_postback(event):
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
-                title='你選擇了去占卜社的塔羅牌攤位：',
-                text='Q4. 你來到了塔羅牌攤位，拉著同學一起坐了下來，這時你會想算?',
+                title='你來到了塔羅牌攤位，拉著同學一起坐了下來，這時你會想算?',
+                text='你選擇了去占卜社的塔羅牌攤位',
                 actions=[
                     PostbackAction(
                             label='A.當然是算愛情 ',
@@ -566,11 +561,11 @@ def handle_postback(event):
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
-                title='你選擇了當然是算學業：',
-                text='Q5. 算出結果似乎是缺乏動力和耐心，這時你會?',
+                title='算出結果似乎是缺乏動力和耐心，這時你會?',
+                text='你選擇了當然是算學業',
                 actions=[
                     PostbackAction(
-                            label='A.占卜不可太迷性，參考就好  ',
+                            label='A.占卜不可太迷性',
                             display_text='占卜不可太迷性，參考就好',
                             data='1a-2b-3b-4b-5a'
                             ),
@@ -592,7 +587,7 @@ def handle_postback(event):
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
-                title='鄰座的同學表示：你平常都在抄我的作業了，不該好好努力一下嗎？ BAD END',
+                title='鄰座的同學表示：你平常都在抄我的作業了，不該好好努力一下嗎？',
                 text='失敗，是否要重新開始',
                 actions=[
                     PostbackAction(
@@ -614,7 +609,7 @@ def handle_postback(event):
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
-                title='每天下課你都會跟鄰座的同學去圖書館讀書，好感度刷刷的往上加～ HAPPY END',
+                title='每天下課你都會跟鄰座的同學去圖書館讀書，好感度刷刷的往上加～',
                 text='成功，恭喜攻略對象!是否要重新開始?',
                 actions=[
                     PostbackAction(
@@ -634,17 +629,17 @@ def handle_postback(event):
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
-                title='你選擇了去買吃的：',
-                text='Q4. 你在猶豫要吃辣吵年糕還是臭豆腐，這時你會？',
+                title='你在猶豫要吃辣吵年糕還是臭豆腐，這時你會？',
+                text='你選擇了去買吃的',
                 actions=[
                     PostbackAction(
-                            label='A. 問問鄰座同學該吃哪一個 。',
-                            display_text='問問鄰座同學該吃哪一個 。',
+                            label='A.問鄰座同學該吃哪一個',
+                            display_text='問鄰座同學該吃哪一個',
                             data='1a-2a-3a-4a'
                             ),
                     PostbackAction(
-                            label='B. 兩個都買，反正我很餓 。',
-                            display_text='兩個都買，反正我很餓 。',
+                            label='B.兩個都買反正我很餓',
+                            display_text='兩個都買反正我很餓',
                             data='1a-2a-3a-4b'
                             )
                 ]
@@ -681,17 +676,17 @@ def handle_postback(event):
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
-                title='你選擇了問問鄰座同學該吃哪一個：',
-                text='Q5. 鄰座同學提議兩個都買，你們可以各一人一半。這時你會？',
+                title='鄰座同學提議兩個都買，你們可以各一人一半。這時你會？',
+                text='你選擇了問問鄰座同學該吃哪一個',
                 actions=[
                     PostbackAction(
-                            label='A. 接受提案拉近兩人的距離。',
+                            label='A.接受提案',
                             display_text='接受提案拉近兩人的距離。',
                             data='1a-2a-3a-4a-5a'
                             ),
                     PostbackAction(
-                            label='B. 感覺不太好，最後都沒買  。',
-                            display_text='感覺不太好，最後都沒買 。',
+                            label='B.感覺不太好最後都沒買',
+                            display_text='感覺不太好最後都沒買 。',
                             data='1a-2a-3a-4a-5b'
                             )
                 ]
@@ -708,7 +703,7 @@ def handle_postback(event):
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
-                title='鄰座的同學覺得很無聊，完全被當空氣。你的好感度被降為負分。 BAD END',
+                title='鄰座的同學覺得很無聊，完全被當空氣。你的好感度被降為負分。',
                 text='失敗，是否要重新開始',
                 actions=[
                     PostbackAction(
@@ -771,3 +766,4 @@ import os
 if __name__ == "__main__":
     port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
+
