@@ -52,7 +52,7 @@ def handle_message(event):
     message = text=event.message.text
     if (message=='開始' or message=='重新開始'):
         buttons_template_message = TemplateSendMessage(
-        alt_text='這個看不到',
+        alt_text='請點餐',
         template=ButtonsTemplate(
             thumbnail_image_url='https://raw.githubusercontent.com/jennifer1214/ivanbot/main/%E6%9C%AA%E5%91%BD%E5%90%8D.png',
             title='這是你期待已久的一天，校內除了各式各樣的小攤位還不同社團精心策劃的表演',
@@ -80,7 +80,7 @@ def handle_message(event):
 def handle_postback(event):
     if event.postback.data == '1a':  
         Carousel_template = TemplateSendMessage(
-        alt_text='Carousel template',
+        alt_text='送餐中．．．',
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
@@ -105,7 +105,7 @@ def handle_postback(event):
         line_bot_api.reply_message(event.reply_token,Carousel_template)
     elif event.postback.data == '1b':  
         Carousel_template = TemplateSendMessage(
-        alt_text='Carousel template',
+        alt_text='送餐中．．．',
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
@@ -130,7 +130,7 @@ def handle_postback(event):
         line_bot_api.reply_message(event.reply_token,Carousel_template)
     elif event.postback.data == '1b-2a':  
         Carousel_template = TemplateSendMessage(
-        alt_text='Carousel template',
+        alt_text='送餐中．．．',
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
@@ -155,7 +155,7 @@ def handle_postback(event):
         line_bot_api.reply_message(event.reply_token,Carousel_template)
     elif event.postback.data == '1b-2a-3a':  #路線9 END
         Carousel_template = TemplateSendMessage(
-        alt_text='Carousel template',
+        alt_text='運送過程發生錯誤，請重新點餐',
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
@@ -175,7 +175,7 @@ def handle_postback(event):
         line_bot_api.reply_message(event.reply_token,Carousel_template)
     elif event.postback.data == '1b-2a-3b':  
         Carousel_template = TemplateSendMessage(
-        alt_text='Carousel template',
+        alt_text='送餐中．．．',
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
@@ -200,7 +200,7 @@ def handle_postback(event):
         line_bot_api.reply_message(event.reply_token,Carousel_template)
     elif event.postback.data == '1b-2a-3b-4a':  
         Carousel_template = TemplateSendMessage(
-        alt_text='Carousel template',
+        alt_text='送餐中．．．',
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
@@ -225,12 +225,12 @@ def handle_postback(event):
         line_bot_api.reply_message(event.reply_token,Carousel_template)
     elif event.postback.data == '1b-2a-3b-4a-5a':  #路線10 END
         Carousel_template = TemplateSendMessage(
-        alt_text='Carousel template',
+        alt_text='餐點已抵達，請給5星好評',
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
                 title='串燒邊走邊吃很方便，你買了一些在回教室的路上和陽光同學一起享用。',
-                text='之後你們也時常一起聊天，關係變得更好了。恭喜達成友情路線，是否要重新開始遊戲？',
+                text='之後你們也時常一起聊天，關係變得更好了。恭喜攻略成功，是否要重新開始遊戲？',
                 actions=[
                     PostbackAction(
                             label='是',
@@ -245,7 +245,7 @@ def handle_postback(event):
         line_bot_api.reply_message(event.reply_token,Carousel_template)
     elif event.postback.data == '1b-2a-3b-4a-5b':  #路線11 END
         Carousel_template = TemplateSendMessage(
-        alt_text='Carousel template',
+        alt_text='運送過程發生錯誤，請重新點餐',
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
@@ -265,7 +265,7 @@ def handle_postback(event):
         line_bot_api.reply_message(event.reply_token,Carousel_template)
     elif event.postback.data == '1b-2a-3b-4b':  #路線12 END
         Carousel_template = TemplateSendMessage(
-        alt_text='Carousel template',
+        alt_text='運送過程發生錯誤，請重新點餐',
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
@@ -285,7 +285,7 @@ def handle_postback(event):
         line_bot_api.reply_message(event.reply_token,Carousel_template)
     elif event.postback.data == '1b-2b':  
         Carousel_template = TemplateSendMessage(
-        alt_text='Carousel template',
+        alt_text='送餐中．．．',
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
@@ -310,7 +310,7 @@ def handle_postback(event):
         line_bot_api.reply_message(event.reply_token,Carousel_template)
     elif event.postback.data == '1b-2b-3a':  
         Carousel_template = TemplateSendMessage(
-        alt_text='Carousel template',
+        alt_text='送餐中．．．',
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
@@ -335,7 +335,7 @@ def handle_postback(event):
         line_bot_api.reply_message(event.reply_token,Carousel_template)
     elif event.postback.data == '1b-2b-3a-4a':  #路線13 END
         Carousel_template = TemplateSendMessage(
-        alt_text='Carousel template',
+        alt_text='運送過程發生錯誤，請重新點餐',
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
@@ -355,7 +355,7 @@ def handle_postback(event):
         line_bot_api.reply_message(event.reply_token,Carousel_template)
     elif event.postback.data == '1b-2b-3a-4b':  
         Carousel_template = TemplateSendMessage(
-        alt_text='Carousel template',
+        alt_text='送餐中．．．',
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
@@ -380,7 +380,7 @@ def handle_postback(event):
         line_bot_api.reply_message(event.reply_token,Carousel_template)
     elif event.postback.data == '1b-2b-3a-4b-5a':  #路線14 END
         Carousel_template = TemplateSendMessage(
-        alt_text='Carousel template',
+        alt_text='運送過程發生錯誤，請重新點餐',
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
@@ -400,7 +400,7 @@ def handle_postback(event):
         line_bot_api.reply_message(event.reply_token,Carousel_template)
     elif event.postback.data == '1b-2b-3a-4b-5b':  #路線15 END
         Carousel_template = TemplateSendMessage(
-        alt_text='Carousel template',
+        alt_text='餐點已抵達，請給5星好評',
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
@@ -420,7 +420,7 @@ def handle_postback(event):
         line_bot_api.reply_message(event.reply_token,Carousel_template)
     elif event.postback.data == '1b-2b-3b':  #路線16 END
         Carousel_template = TemplateSendMessage(
-        alt_text='Carousel template',
+        alt_text='運送過程發生錯誤，請重新點餐',
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
@@ -440,7 +440,7 @@ def handle_postback(event):
         line_bot_api.reply_message(event.reply_token,Carousel_template)
     elif event.postback.data == '1a-2a':  
         Carousel_template = TemplateSendMessage(
-        alt_text='Carousel template',
+        alt_text='送餐中．．．',
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
@@ -465,7 +465,7 @@ def handle_postback(event):
         line_bot_api.reply_message(event.reply_token,Carousel_template)
     elif event.postback.data == '1a-2b':  
         Carousel_template = TemplateSendMessage(
-        alt_text='Carousel template',
+        alt_text='送餐中．．．',
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
@@ -491,7 +491,7 @@ def handle_postback(event):
     #路線五結尾
     elif event.postback.data == '1a-2b-3a':  
         Carousel_template = TemplateSendMessage(
-        alt_text='Carousel template',
+        alt_text='運送過程發生錯誤，請重新點餐',
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
@@ -511,7 +511,7 @@ def handle_postback(event):
         line_bot_api.reply_message(event.reply_token,Carousel_template)
     elif event.postback.data == '1a-2b-3b':  
         Carousel_template = TemplateSendMessage(
-        alt_text='Carousel template',
+        alt_text='送餐中．．．',
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
@@ -537,7 +537,7 @@ def handle_postback(event):
     #路線六結尾
     elif event.postback.data == '1a-2b-3b-4a':  
         Carousel_template = TemplateSendMessage(
-        alt_text='Carousel template',
+        alt_text='運送過程發生錯誤，請重新點餐',
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
@@ -557,7 +557,7 @@ def handle_postback(event):
         line_bot_api.reply_message(event.reply_token,Carousel_template)
     elif event.postback.data == '1a-2b-3b-4b':  
         Carousel_template = TemplateSendMessage(
-        alt_text='Carousel template',
+        alt_text='送餐中．．．',
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
@@ -583,7 +583,7 @@ def handle_postback(event):
     #路線七結尾
     elif event.postback.data == '1a-2b-3b-4b-5a':  
         Carousel_template = TemplateSendMessage(
-        alt_text='Carousel template',
+        alt_text='運送過程發生錯誤，請重新點餐',
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
@@ -605,7 +605,7 @@ def handle_postback(event):
     #路線八結尾
     elif event.postback.data == '1a-2b-3b-4b-5b':  
         Carousel_template = TemplateSendMessage(
-        alt_text='Carousel template',
+        alt_text='餐點已抵達，請給5星好評',
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
@@ -625,7 +625,7 @@ def handle_postback(event):
         line_bot_api.reply_message(event.reply_token,Carousel_template) 
     elif event.postback.data == '1a-2a-3a':  
         Carousel_template = TemplateSendMessage(
-        alt_text='Carousel template',
+        alt_text='送餐中．．．',
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
@@ -652,7 +652,7 @@ def handle_postback(event):
     #路線四結尾
     elif event.postback.data == '1a-2a-3b':  
         Carousel_template = TemplateSendMessage(
-        alt_text='Carousel template',
+        alt_text='運送過程發生錯誤，請重新點餐',
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
@@ -672,7 +672,7 @@ def handle_postback(event):
         line_bot_api.reply_message(event.reply_token,Carousel_template)
     elif event.postback.data == '1a-2a-3a-4a':  
         Carousel_template = TemplateSendMessage(
-        alt_text='Carousel template',
+        alt_text='送餐中．．．',
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
@@ -699,7 +699,7 @@ def handle_postback(event):
     #路線三結尾
     elif event.postback.data == '1a-2a-3a-4b':  
         Carousel_template = TemplateSendMessage(
-        alt_text='Carousel template',
+        alt_text='運送過程發生錯誤，請重新點餐',
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
@@ -720,7 +720,7 @@ def handle_postback(event):
     #路線一結尾
     elif event.postback.data == '1a-2a-3a-4a-5a':  
         Carousel_template = TemplateSendMessage(
-        alt_text='Carousel template',
+        alt_text='運送過程發生錯誤，請重新點餐',
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
@@ -742,7 +742,7 @@ def handle_postback(event):
 #路線二結尾
     elif event.postback.data == '1a-2a-3a-4a-5b':  
         Carousel_template = TemplateSendMessage(
-        alt_text='Carousel template',
+        alt_text='餐點已抵達，請給5星好評',
         template=CarouselTemplate(
         columns=[
             CarouselColumn(
