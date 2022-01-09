@@ -65,7 +65,7 @@ def handle_message(event):
             actions=[
                 PostbackAction(
                     label='A. 鄰座的禁慾高冷系同學',
-                    display_text='你選擇了鄰座的禁慾高冷系同學係',
+                    display_text='你選擇了鄰座的禁慾高冷系同學',
                     data='1a'
                 ),
                 PostbackAction(
@@ -144,12 +144,12 @@ def handle_postback(event):
                 actions=[
                     PostbackAction(
                             label='A. 到頭蹲下',
-                            display_text='到頭蹲下～',
+                            display_text='到頭蹲下',
                             data='1b-2a-3a'
                             ),
                     PostbackAction(
                             label='B. 帥氣得踢回去',
-                            display_text='帥氣得踢回去～',
+                            display_text='帥氣得踢回去',
                             data='1b-2a-3b'
                             ),
                 ]
