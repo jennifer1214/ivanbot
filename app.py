@@ -466,8 +466,8 @@ def handle_postback(event):
     elif event.postback.data == '1a-2b':  
         Carousel_template = TemplateSendMessage(
         alt_text='送餐中．．．',
-        thumbnail_image_url='https://github.com/jennifer1214/ivanbot/blob/main/%E9%BB%9E%E9%A4%90.png?raw=true',
         template=CarouselTemplate(
+        thumbnail_image_url='https://github.com/jennifer1214/ivanbot/blob/main/%E9%BB%9E%E9%A4%90.png?raw=true',
         columns=[
             CarouselColumn(
                 title='你們走到了學校的大禮堂，發現眼前有許多不同的社團，這時你會?',
