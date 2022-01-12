@@ -86,6 +86,7 @@ def handle_postback(event):
             CarouselColumn(
                 title='你拉著鄰座的同學一起衝出了教室，走到樓梯口後，你會？',
                 text='你選擇了鄰座的禁慾高冷系同學：',
+                #thumbnail_image_url='https://github.com/jennifer1214/ivanbot/blob/main/%E9%BB%9E%E9%A4%90.png?raw=true',
                 actions=[
                     PostbackAction(
                             label='A.先去逛攤位',
@@ -161,7 +162,6 @@ def handle_postback(event):
             CarouselColumn(
                 title='陽光同學帥氣的把球踢回去，因拒絕不了場上同學的比賽邀約，當結束時休息時間也結束了',
                 text='遊戲失敗，是否要重新開始遊戲？',
-                thumbnail_image_url='https://raw.githubusercontent.com/jennifer1214/ivanbot/main/2_0.png',
                 actions=[
                     PostbackAction(
                             label='是',
