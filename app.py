@@ -160,7 +160,7 @@ def handle_postback(event):
         columns=[
             CarouselColumn(
                 title='陽光同學帥氣的把球踢回去，因拒絕不了場上同學的比賽邀約，當結束時休息時間也結束了',
-                text='是否要重新開始遊戲？',
+                text='訂單失敗，是否要重新開始遊戲？',
                 thumbnail_image_url='https://raw.githubusercontent.com/jennifer1214/ivanbot/main/%E5%A4%B1%E6%95%97.png',
                 actions=[
                     PostbackAction(
@@ -231,7 +231,7 @@ def handle_postback(event):
         columns=[
             CarouselColumn(
                 title='串燒邊走邊吃很方便，你買了一些在回教室的路上和陽光同學一起享用。',
-                text='之後你們也時常一起聊天，關係變得更好了。是否要重新開始遊戲？',
+                text='之後你們也時常一起聊天，關係變得更好了。訂單成功，是否要重新開始遊戲？',
                 thumbnail_image_url='https://raw.githubusercontent.com/jennifer1214/ivanbot/main/%E6%88%90%E5%8A%9F.png',
                 actions=[
                     PostbackAction(
@@ -252,7 +252,7 @@ def handle_postback(event):
         columns=[
             CarouselColumn(
                 title='你買了一碗和陽光同學分著吃，之後就回教室值班。',
-                text='隔天校方公佈賣辣炒年糕的班級有人是新冠肺炎無症狀確診者，很不幸的你們兩個吃完後都中標了。是否要重新開始遊戲？',
+                text='隔天校方公佈賣辣炒年糕的班級有人是新冠肺炎無症狀確診者，很不幸的你們兩個吃完後都中標了。訂單失敗，是否要重新開始遊戲？',
                 thumbnail_image_url='https://raw.githubusercontent.com/jennifer1214/ivanbot/main/%E5%A4%B1%E6%95%97.png',
                 actions=[
                     PostbackAction(
@@ -273,7 +273,7 @@ def handle_postback(event):
         columns=[
             CarouselColumn(
                 title='你們開開心心的比完了一場後休息時間也差不多結束了，你們匆匆忙忙地回教室。',
-                text='之後陽光同學似乎因為你球踢得好，一直把你當兄弟TAT。是否要重新開始遊戲？',
+                text='之後陽光同學似乎因為你球踢得好，一直把你當兄弟TAT。訂單失敗，是否要重新開始遊戲？',
                 thumbnail_image_url='https://raw.githubusercontent.com/jennifer1214/ivanbot/main/%E5%A4%B1%E6%95%97.png',
                 actions=[
                     PostbackAction(
@@ -344,7 +344,7 @@ def handle_postback(event):
         columns=[
             CarouselColumn(
                 title='陽光同學看似大大咧咧，但其實重度潔癖。聖代雖然浪漫，但融化的太快到後面看起來噁心',
-                text='陽光同學接受不了，好感度歸零。是否要重新開始遊戲？',
+                text='陽光同學接受不了，好感度歸零。訂單失敗，是否要重新開始遊戲？',
                 thumbnail_image_url='https://raw.githubusercontent.com/jennifer1214/ivanbot/main/%E5%A4%B1%E6%95%97.png',
                 actions=[
                     PostbackAction(
@@ -390,7 +390,7 @@ def handle_postback(event):
         columns=[
             CarouselColumn(
                 title='陽光同學選擇了去大操場跟朋友們踢足球，你默默的在旁邊看著，就這樣休息時間結束',
-                text='最後沒有跟陽光同學增近到感情。是否要重新開始遊戲？',
+                text='最後沒有跟陽光同學增近到感情。訂單失敗，是否要重新開始遊戲？',
                 thumbnail_image_url='https://raw.githubusercontent.com/jennifer1214/ivanbot/main/%E5%A4%B1%E6%95%97.png',
                 actions=[
                     PostbackAction(
@@ -411,7 +411,7 @@ def handle_postback(event):
         columns=[
             CarouselColumn(
                 title='陽光同學早就聽說二手市集很有趣於是便一起去逛了二手市集，你們度過了愉快的時光',
-                text='之後陽光同學也會時不時的約你出去。是否要重新開始遊戲？',
+                text='之後陽光同學也會時不時的約你出去。訂單成功，是否要重新開始遊戲？',
                 thumbnail_image_url='https://raw.githubusercontent.com/jennifer1214/ivanbot/main/%E6%88%90%E5%8A%9F.png',
                 actions=[
                     PostbackAction(
@@ -432,7 +432,7 @@ def handle_postback(event):
         columns=[
             CarouselColumn(
                 title='陽光同學表示想吃東西，導致意見分歧。最後他不情願的先陪妳去了二手市集',
-                text='好感度直接歸零。是否要重新開始遊戲？',
+                text='好感度直接歸零。訂單失敗，是否要重新開始遊戲？',
                 thumbnail_image_url='https://raw.githubusercontent.com/jennifer1214/ivanbot/main/%E5%A4%B1%E6%95%97.png',
                 actions=[
                     PostbackAction(
@@ -504,7 +504,7 @@ def handle_postback(event):
         columns=[
             CarouselColumn(
                 title='鄰座的同學雖然是個高冷系，但其實怕黑怕鬼。被你拉去鬼屋後，他就不怎麼理你了',
-                text='是否要重新開始',
+                text='訂單失敗，是否要重新開始？',
                 thumbnail_image_url='https://raw.githubusercontent.com/jennifer1214/ivanbot/main/%E5%A4%B1%E6%95%97.png',
                 actions=[
                     PostbackAction(
@@ -551,7 +551,7 @@ def handle_postback(event):
         columns=[
             CarouselColumn(
                 title='同學就一個鋼鐵直男，此時此刻內心OS大概是：怎麼不算算學業？數學作業都抄我的呢',
-                text='是否要重新開始',
+                text='訂單失敗，是否要重新開始？',
                 thumbnail_image_url='https://raw.githubusercontent.com/jennifer1214/ivanbot/main/%E5%A4%B1%E6%95%97.png',
                 actions=[
                     PostbackAction(
@@ -598,7 +598,7 @@ def handle_postback(event):
         columns=[
             CarouselColumn(
                 title='鄰座的同學表示：你平常都在抄我的作業了，不該好好努力一下嗎？',
-                text='是否要重新開始',
+                text='訂單失敗，是否要重新開始？',
                 thumbnail_image_url='https://raw.githubusercontent.com/jennifer1214/ivanbot/main/%E5%A4%B1%E6%95%97.png',
                 actions=[
                     PostbackAction(
@@ -621,7 +621,7 @@ def handle_postback(event):
         columns=[
             CarouselColumn(
                 title='每天下課你都會跟鄰座的同學去圖書館讀書，好感度刷刷的往上加～',
-                text='是否要重新開始?',
+                text='訂單成功，是否要重新開始?',
                 thumbnail_image_url='https://raw.githubusercontent.com/jennifer1214/ivanbot/main/%E6%88%90%E5%8A%9F.png',
                 actions=[
                     PostbackAction(
@@ -669,7 +669,7 @@ def handle_postback(event):
         columns=[
             CarouselColumn(
                 title='鄰座的同學其實很餓，只想去買點吃的才跟你出來。沒想會被你拉去玩遊戲',
-                text='你似乎被討厭了。是否要重新開始',
+                text='你似乎被討厭了。訂單失敗，是否要重新開始？',
                 thumbnail_image_url='https://raw.githubusercontent.com/jennifer1214/ivanbot/main/%E5%A4%B1%E6%95%97.png',
                 actions=[
                     PostbackAction(
@@ -717,7 +717,7 @@ def handle_postback(event):
         columns=[
             CarouselColumn(
                 title='鄰座的同學覺得很無聊，完全被當空氣。你的好感度被降為負分。',
-                text='是否要重新開始',
+                text='訂單失敗，是否要重新開始？',
                 thumbnail_image_url='https://raw.githubusercontent.com/jennifer1214/ivanbot/main/%E5%A4%B1%E6%95%97.png',
                 actions=[
                     PostbackAction(
@@ -739,7 +739,7 @@ def handle_postback(event):
         columns=[
             CarouselColumn(
                 title='賣辣炒年糕的班級有人是新冠肺炎無症狀確診者，很不幸的你們兩個吃完後都中標',
-                text='是否要重新開始',
+                text='訂單失敗，是否要重新開始？',
                 thumbnail_image_url='https://raw.githubusercontent.com/jennifer1214/ivanbot/main/%E5%A4%B1%E6%95%97.png',
                 actions=[
                     PostbackAction(
@@ -762,7 +762,7 @@ def handle_postback(event):
         columns=[
             CarouselColumn(
                 title='園遊會後學校緊急公佈賣辣炒年糕的班級有肺炎確診者，直接停課大清消。',
-                text='鄰座的同學表示感謝你當初的明智之舉，之後你們反而變得更親密～是否要重新開始?',
+                text='鄰座的同學表示感謝你當初的明智之舉，之後你們反而變得更親密～訂單成功，是否要重新開始?',
                 thumbnail_image_url='https://raw.githubusercontent.com/jennifer1214/ivanbot/main/%E6%88%90%E5%8A%9F.png',
                 actions=[
                     PostbackAction(
