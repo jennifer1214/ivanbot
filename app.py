@@ -294,7 +294,7 @@ def handle_postback(event):
         columns=[
             CarouselColumn(
                 title='你拉著陽光同學一起衝出了教室，走到樓梯口後，你會？',
-                text='你選擇了去大操場逛逛，一路上陽光同學都跟你有說有笑',
+                text='你選擇了去逛班級攤位，一路上陽光同學都跟你有說有笑',
                 actions=[
                     PostbackAction(
                             label='A.一班的女僕咖啡',
